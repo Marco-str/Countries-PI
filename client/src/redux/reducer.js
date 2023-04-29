@@ -21,7 +21,8 @@ const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         
         case GET_COUNTRIES:
-            return {...state, countries: action.payload};
+            return {...state, countries: action.payload, reloadCountries: false,
+            };
 
         default:
             return {...state};
