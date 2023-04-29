@@ -8,12 +8,15 @@ const NavBar = () => {
             
             <h1>esta va a ser la posicion de la NavBar</h1>
             
-            <Link to='/home'>Home</Link>
             
-            <Link to='/create'>Form</Link>
+            <Link class={style.form__submit} to='/home'>Home</Link>
             
-            <Link to='/detail'>Detail</Link>
-
+            
+            <Link  class={style.form__submit} to='/create'>Form</Link>
+            
+            
+            <Link  class={style.form__submit} to='/detail'>Detail</Link>
+           
 
         </div>
 

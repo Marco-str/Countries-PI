@@ -1,0 +1,31 @@
+.mainContainer{
+    
+    
+    background-color: #282c34;
+    color: white;
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 15px;
+    border: 1px solid #282c34;
+}
+
+.form__submit{
+    background-color: #0c53e1;
+    color: white;
+    font-family: inherit;
+    
+    font-size: 1.1rem;
+    padding: 1em 1.5em;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    font-weight: 500;
+   
+    
+    
+}

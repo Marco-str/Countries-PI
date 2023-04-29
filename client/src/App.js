@@ -5,20 +5,23 @@ import './App.css';
 import { Detail, Form, Home, Landing  } from './views/index';
 
 /*NavBar*/
-import { NavBar } from './components/NavBar/NavBar.jsx';
+import NavBar from './components/NavBar/NavBar';
 
 /*React Router*/
 import { Route } from 'react-router-dom';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 
 function App() {
+
+  const location = useLocation()
   return (
     <div className="App">
      
       <h1>Henry Countries</h1>
 
-      <NavBar />
+      {location.pathname !== "/" && <NavBar />}
 
       <Route exact path= "/">
           <Landing />
