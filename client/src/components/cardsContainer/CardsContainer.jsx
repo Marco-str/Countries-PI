@@ -11,41 +11,31 @@ import { useSelector } from "react-redux";
 const CardsContainer = () => {
     
 
-            const users= useSelector(state=>state.users)
+            const countries= useSelector(state=>state.countries)
             return(
         
         <div className={style.cardsContainer}>
         
             
-            {users.map(user=> {
+            {countries.map(elemento=> {
                 return <Card 
 
-                // id={ e.cca3}
-                // name= {e.name.common}
-                // img= {e.flags[0]}
-                // continente= {e.region}
-                // capital= {e.capital}
-                // subregion= {e.subregion}
-                // area= {e.area}
-                // poblacion= {e.population}
-                // lenguajes= {e.languages}
-                // estadoSoberanoIndependiente= {e.independent}
-                // moneda={ e.currencies}
+              
 
-                id={user.cca3}
-                name={user.name.common}
-                flag={user.flags}
-                continente={user.region}
-                capital={user.capital}
-                subregion={user.subregion}
-                area={user.area}
-                poblacion={user.population}
-                estadoSoberanoIndependiente={user.independent}
+                id={elemento.id}
+                name={elemento.name}
+                flag={elemento.img}
+                continente={elemento.continente}
+                capital={elemento.capital}
+                subregion={elemento.subregion}
+                area={elemento.area}
+                poblacion={elemento.poblacion}
+                estadoSoberanoIndependiente={elemento.estadoSoberanoIndependiente}
+
+          
                 
-                
-
-
-                 />})}
+                 />
+                 })}
         
         </div>
        
