@@ -2,7 +2,7 @@ import './App.css';
 
 
 /* Views */
-import { Detail, Form, Home, Landing  } from './views/index';
+import { Detail, Form, Home, Landing, AboutMe  } from './views/index';
 
 /*NavBar*/
 import NavBar from './components/NavBar/NavBar';
@@ -31,12 +31,16 @@ function App() {
           <Home />  
       </Route>
       
-      <Route exact path= "/detail">
-          <Detail /> 
+      <Route exact path= "/AboutMe">
+          <AboutMe /> 
       </Route>
       
       <Route exact path= "/create">
           <Form /> 
+      </Route>
+
+      <Route exact path="/detail/:id" >
+          <Detail />
       </Route>
       
 

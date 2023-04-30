@@ -1,7 +1,8 @@
 .cardsContainer{
 
     border: 1px solid black;
-    background-color: bisque;
+    background-color: rgb(238, 196, 145);
+ 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

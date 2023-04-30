@@ -1,6 +1,6 @@
 /*Action types*/
 
-import { GET_COUNTRIES } from "./actions/actions";
+import { GET_COUNTRIES , GET_COUNTRY, GET_ACTIVITIES, POST_ACTIVITY, FILTER_COUNTRIES_BYID} from "./actions/types";
 
 
 
@@ -21,6 +21,22 @@ const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         
         case GET_COUNTRIES:
+            return {...state, countries: action.payload, reloadCountries: false,
+            };
+
+        case GET_COUNTRY:
+            return {...state, countries: action.payload, reloadCountries: false,
+            };
+
+        case GET_ACTIVITIES:
+            return {...state, countries: action.payload, reloadCountries: false,
+            };
+
+        case POST_ACTIVITY:
+            return {...state, countries: action.payload, reloadCountries: false,
+            };
+
+        case FILTER_COUNTRIES_BYID:
             return {...state, countries: action.payload, reloadCountries: false,
             };
 

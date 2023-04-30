@@ -15,7 +15,7 @@ const NavBar = () => {
             <Link  class={style.form__submit} to='/create'>Form</Link>
             
             
-            <Link  class={style.form__submit} to='/detail'>Detail</Link>
+            <Link  class={style.form__submit} to='/AboutMe'>About Me</Link>
            
 
         </div>

@@ -5,9 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-image: url("./Imagenes/mapa-viejo-del-mundo-en-un-fondo-pergamino-estilo-de-la-vendimia-elementos-esta-imagen-equipados-por-nasa-133070650.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 100%;
+  
+  font-family: 'Lilita One', cursive;
 }
 
 code {
+  font-family: 'Lilita One', cursive;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }

@@ -4,12 +4,23 @@ import style from "./CardsContainer.module.css";
 
 /*REdux*/
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getCountries } from "../../redux/actions/actions";
 
 
 
 
 const CardsContainer = () => {
     
+            const reloadCountries = useSelector(state=>state.reloadCountries);
+            const dispatch = useDispatch();
+            useEffect( ()=>{
+                if(reloadCountries) {
+                  dispatch(getCountries())
+               }
+            },[]);
+
 
             const countries= useSelector(state=>state.countries)
             return(

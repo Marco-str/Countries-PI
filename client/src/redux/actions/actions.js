@@ -1,7 +1,8 @@
 import axios from "axios";
 
-//import { GET_COUNTRIES , GET_COUNTRY, GET_ACTIVITIES, POST_ACTIVITY, FILTER_COUNTRIES_BYID} from "./types.js";
-export const GET_COUNTRIES = "GET_COUNTRIES";
+
+/*ACTIONS TYPES*/
+import { GET_COUNTRIES , GET_COUNTRY, GET_ACTIVITIES, POST_ACTIVITY, FILTER_COUNTRIES_BYID} from "./types.js";
 
 
 
@@ -15,7 +16,7 @@ export const getCountries = () => {
         
         const countries = serverData.data;
         
-        dispatch({ type: "GET_COUNTRIES", payload: countries });
+        dispatch({ type: GET_COUNTRIES, payload: countries });
     }
 };
 
@@ -23,40 +24,40 @@ export const getCountries = () => {
 /************************************************************** */
 
 
-// export const getCountry = (id) => {
-//     return async function(dispatch) {
-//         const serverData = await axios.get(`http://localhost:3001/countries/${id}`); //<--- Un pais en particular
+export const getCountry = (id) => {
+    return async function(dispatch) {
+        const serverData = await axios.get(`http://localhost:3001/countries/${id}`); //<--- Un pais en particular
 
-//         const country = serverData.data;
-//         dispatch({ type: "GET_COUNTRY", payload: country });
-//     }
-// };
-
-
-/************************************************************** */
-
-
-// export const getActivities = () => {
-//     return async function(dispatch) {
-//         const serverData = await axios.get("http://localhost:3001/activity"); //<--- Todas las actividades
-
-//         const activities = serverData.data;
-//         dispatch({ type: "GET_ACTIVITIES", payload: activities });
-//     }
-// }
+        const country = serverData.data;
+        dispatch({ type: GET_COUNTRY, payload: country });
+    }
+};
 
 
 /************************************************************** */
 
 
-// export const postActivity = (activity) => {
-//     return async function(dispatch) {
-//         const serverData = await axios.post("http://localhost:3001/activity", activity); //<--- Crea una actividad
+export const getActivities = () => {
+    return async function(dispatch) {
+        const serverData = await axios.get("http://localhost:3001/activity"); //<--- Todas las actividades
 
-//         const newActivity = serverData.data;
-//         dispatch({ type: "POST_ACTIVITY", payload: newActivity });
-//     }
-// }
+        const activities = serverData.data;
+        dispatch({ type: GET_ACTIVITIES, payload: activities });
+    }
+}
+
+
+/************************************************************** */
+
+
+export const postActivity = (activity) => {
+    return async function(dispatch) {
+        const serverData = await axios.post("http://localhost:3001/activity", activity); //<--- Crea una actividad
+
+        const newActivity = serverData.data;
+        dispatch({ type: POST_ACTIVITY, payload: newActivity });
+    }
+}
 
 
 
@@ -67,7 +68,7 @@ export const getCountries = () => {
 
 // export const filterCountriesByID = () => {
     
-//         dispatch({type: "FILTER_COUNTRIES_BYID"});
+//         dispatch({type: FILTER_COUNTRIES_BYID});
         
     
 // };
