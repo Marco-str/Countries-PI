@@ -1,19 +1,23 @@
 .mainContainer{
     
     
-    background-color: #282c34;
+    background-color: #343228;
     color: white;
+
+    opacity: 0.9;
 
 
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
+    
     justify-content: space-around;
+    align-items: center;
     border-radius: 15px;
     border: 1px solid #282c34;
 }
 
 .form__submit{
-    background-color: #0c53e1;
+    
     color: white;
     font-family: inherit;
     
@@ -29,3 +33,23 @@
     
     
 }
+
+.icon{
+    font-size: 1.5rem;
+    margin-right: 0.5em;
+}
+
+.contact__icon {
+    width: 50px;
+    display: block;
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out;
+  }
+
+.contact__icon:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+     }
+
+
+

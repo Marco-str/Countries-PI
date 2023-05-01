@@ -4,32 +4,40 @@ import style from "./CardsContainer.module.css";
 
 /*REdux*/
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getCountries } from "../../redux/actions/actions";
+import { useState } from "react";
 
 
 
 
 const CardsContainer = () => {
+
+    const [currentPage, setCurrentPage]= useState(0)
+
     
-            const reloadCountries = useSelector(state=>state.reloadCountries);
-            const dispatch = useDispatch();
-            useEffect( ()=>{
-                if(reloadCountries) {
-                  dispatch(getCountries())
-               }
-            },[]);
+    
+    
+    const countries= useSelector(state=>state.countries)
+    
+    const filterCountries = countries.slice(currentPage, currentPage + 8)
 
 
-            const countries= useSelector(state=>state.countries)
+    const nextPage = () => {
+        setCurrentPage(currentPage + 8)
+    }
+
+    const prevPage = () => {
+        if (currentPage > 0)
+        setCurrentPage(currentPage - 8)
+    }
+
             return(
-        
-        <div className={style.cardsContainer}>
+
+                <div className={style.cardsContainer}>
+                   
         
             
-            {countries.map(elemento=> {
-                return <Card 
+            {filterCountries.map(elemento=> {
+                return( <Card 
 
               
 
@@ -46,9 +54,20 @@ const CardsContainer = () => {
           
                 
                  />
+                 
+                )
+                 
                  })}
         
+        <div className={style.boton}>
+            
+            <input type="submit" class={style.form__submit} onClick={prevPage} value="Página Anterior"/>
+            <input type="submit" class={style.form__submit} onClick={nextPage} value="Próxima Página"/>
+                        
+            </div>
+                     
         </div>
+        
        
     )
 }

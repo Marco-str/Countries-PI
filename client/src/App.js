@@ -13,7 +13,12 @@ import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 
+
+
 function App() {
+
+
+/*React Router*/
 
   const location = useLocation()
   return (
@@ -46,6 +51,10 @@ function App() {
 
     </div>
   );
+
+  /*React Router*/
+
+
 }
 
 export default App;

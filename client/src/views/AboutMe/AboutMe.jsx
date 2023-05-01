@@ -35,28 +35,28 @@ return(
                 
               <div className={style.imagen}>
            
-                    <img src={imagenPersonal} />
+                    <img src={imagenPersonal} alt="foto de marco, autor del proyecto" />
               </div>
 
                 <div class={style.contact}>
       
-      <a href="#" class={style.contact__link}>
+      <a href="https://www.facebook.com/marco.salazartorrealba" class={style.contact__link}>
         <img src={logoFacebook} alt="" class={style.contact__icon}/> 
       </a>
       
-      <a href="#" class={style.contact__link}>
+      <a href="https://twitter.com/marcos_nattu" class={style.contact__link}>
         <img src={logoTwitter} alt="" class={style.contact__icon}/>
       </a>
       
-      <a href="#" class={style.contact__link}>
+      <a href="https://github.com/Marco-str" class={style.contact__link}>
         <img src={logoGithub} alt="" class={style.contact__icon}/>
       </a>
 
-      <a href="#" class={style.contact__link}>
+      <a href="https://www.linkedin.com/in/marcosalazartorrealba/" class={style.contact__link}>
         <img src={logoLinkedin} alt="" class={style.contact__icon}/>
       </a>
 
-      <a href="#" class={style.contact__link}>
+      <a href="https://www.instagram.com/marcos_str/" class={style.contact__link}>
         <img src={logoInstagram} alt="" class={style.contact__icon}/>
       </a>
 

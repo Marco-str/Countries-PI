@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 /*ACTIONS TYPES*/
-import { GET_COUNTRIES , GET_COUNTRY, GET_ACTIVITIES, POST_ACTIVITY, FILTER_COUNTRIES_BYID} from "./types.js";
+import { GET_COUNTRIES , GET_COUNTRY, GET_ACTIVITIES, POST_ACTIVITY} from "./types.js";
 
 
 

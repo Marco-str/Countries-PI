@@ -10,16 +10,19 @@ const Card = ({name, flag, continente, id })=> {
     
    
     return(
-        <div className={style.card}>
-           
-                <Link className={style.Main} to={`/detail/${id}`} >
+        
+        
+                <div className={style.card}>
                 <h1 className={style.name}> {name}</h1>
-                <img src={flag} alt="" />
-                </Link>
 
-                <p>Continente:{continente}</p>        
+                 <Link  to={`/detail/${id}`} >
+                <img src={flag} alt="bandera de pais" className={style.img} />
+                </Link>
+                  
+                <p>Continente:  {continente}</p>        
+                    </div>
+
    
-    </div>
     )
 }
 export default Card;

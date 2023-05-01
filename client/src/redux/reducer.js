@@ -9,7 +9,7 @@ const initialState = {
 
     countries : [],
 
-    reloadCountries: true,
+    
 
     
 
@@ -21,23 +21,23 @@ const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         
         case GET_COUNTRIES:
-            return {...state, countries: action.payload, reloadCountries: false,
+            return {...state, countries: action.payload, 
             };
 
         case GET_COUNTRY:
-            return {...state, countries: action.payload, reloadCountries: false,
+            return {...state, countries: action.payload, 
             };
 
         case GET_ACTIVITIES:
-            return {...state, countries: action.payload, reloadCountries: false,
+            return {...state, countries: action.payload, 
             };
 
         case POST_ACTIVITY:
-            return {...state, countries: action.payload, reloadCountries: false,
+            return {...state, countries: action.payload, 
             };
 
         case FILTER_COUNTRIES_BYID:
-            return {...state, countries: action.payload, reloadCountries: false,
+            return {...state, countries: action.payload, 
             };
 
         default:

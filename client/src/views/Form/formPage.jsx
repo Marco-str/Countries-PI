@@ -101,8 +101,8 @@ const Form = () => {
         event.preventDefault();  //<-- para que no se recargue la pagina
 
         alert("Formulario enviado");
-
-        const response = axios.post("http://localhost:3001/activity", formulario)
+        //const response = await axios.post("http://localhost:3001/activity", formulario)
+        axios.post("http://localhost:3001/activity", formulario)
         .then(res=>alert(res))
         .cath(err=>alert(err))
     };

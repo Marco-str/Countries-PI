@@ -1,7 +1,9 @@
 .cardsContainer{
 
-    border: 1px solid black;
+    /*border: 1px solid black;
     background-color: rgb(238, 196, 145);
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);*/
+    
  
     display: flex;
     flex-direction: row;
@@ -12,12 +14,49 @@
     border-radius: 5%;
     margin: 10px;
     padding: 10px;
-    width: 100%;
+    width: 98%;
     height: 100%;
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     transition: all 0.5s ease-in-out;
    
+    text-decoration: none;
 
 }
 
+
+.form__submit{
+
+    
+    background-color: #5f4602;
+   color: white;
+   font-family: inherit;
+   font-size: 1.9rem;
+   padding: 1em 1.5em;
+   border: none;
+   border-radius: 1em;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   font-weight: 500;
+    margin: 5px;
+   
+   }
+   
+   .form__submit:hover{
+       background-color: #4a3501;
+       transition: all 0.3s ease;
+       transform: scaleX(1.1) scaleY(1.1) ;
+       
+   
+   }
+
+   .form__submit:active {
+
+    --glow-color: rgb(168, 119, 5);
+    --glow-spread-color: rgba(254, 175, 17, 0.781);
+    --enhanced-glow-color: rgb(85, 55, 7);
+   /* --btn-color: rgb(65, 136, 61);*/
+
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+                0 0 2.5em 2em var(--glow-spread-color),
+                inset 0 0 .2em .25em var(--glow-color)
+  }
