@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
      
-      <h1>Henry Countries</h1>
+     
 
       {location.pathname !== "/" && <NavBar />}
 
@@ -47,6 +47,8 @@ function App() {
       <Route exact path="/detail/:id" >
           <Detail />
       </Route>
+
+     
       
 
     </div>

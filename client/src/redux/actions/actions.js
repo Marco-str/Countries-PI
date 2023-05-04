@@ -39,7 +39,7 @@ export const getCountry = (id) => {
 
 export const getActivities = () => {
     return async function(dispatch) {
-        const serverData = await axios.get("http://localhost:3001/activity"); //<--- Todas las actividades
+        const serverData = await axios.get("http://localhost:3001/activities"); //<--- Todas las actividades
 
         const activities = serverData.data;
         dispatch({ type: GET_ACTIVITIES, payload: activities });
@@ -50,12 +50,15 @@ export const getActivities = () => {
 /************************************************************** */
 
 
-export const postActivity = (activity) => {
+export const postActivity = (formulario) => {
     return async function(dispatch) {
-        const serverData = await axios.post("http://localhost:3001/activity", activity); //<--- Crea una actividad
-
-        const newActivity = serverData.data;
-        dispatch({ type: POST_ACTIVITY, payload: newActivity });
+        try {
+            const serverData = await axios.post("http://localhost:3001/activities", formulario);
+            const newActivity = serverData.data;
+            dispatch({ type: POST_ACTIVITY, payload: newActivity });
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 

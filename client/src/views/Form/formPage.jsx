@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState} from "react";
+
 
 import axios from "axios";
+
+import style from "./formPage.module.css";
 
 const Form = () => {
 
@@ -12,159 +15,184 @@ const Form = () => {
         duracion: "",
         temporada: "",
         CountryId: ""
-
-
     });
 
 
-    const [error , setError] = useState({
+    // const [error , setError] = useState({
 
-        name: "",
-        description: "",
-        dificultad: "",
-        duracion: "",
-        temporada: "",
-        CountryId: ""
+    //     name: "",
+    //     description: "",
+    //     dificultad: "",
+    //     duracion: "",
+    //     temporada: "",
+    //     CountryId: ""
+    // });
 
-
-    });
-
-
-    const changeHandler = (event) => {
     
-        setFormulario({
-            ...formulario,
-            [event.target.name]: event.target.value
-        })
+    
+    
+    // const validate = (formulario)=>{
+    //     if (formulario.name) {
+    //         setError("");
+    //     } else {
+    //         setError("El nombre de la actividad es obligatorio");
+    //     }
+    // };
+    
+    // useEffect(() => {
+    //     validate()
+    // }, [formulario]) 
+    
+    // const [paises, setPaises] = useState([]);
+    
+        const changeHandler = (event) => {
+            setFormulario({
+                ...formulario,
+                [event.target.name]: event.target.value
+            })
 
-        validate({
-            ...formulario,
-            [event.target.name]: event.target.value
-        })
-
-    };
-
-
-
-    const validate = (formulario)=>{
-
-        let error = {};
-
-        if(formulario.name){
-            setError({...error, name: ""})
-        }else{
-            error.name = "El nombre es obligatorio"
-            setError({...error, name: "El nombre de la actividad es obligatorio"})
-        }
-
-        if(formulario.description){
-            setError({...error, description: ""})
-        }else{
-            error.description = "La descripcion es obligatoria"
-            setError({...error, description: "La descripcion es obligatoria"})
-        }
-
-        if(formulario.dificultad && !Number(1-5)){
-           setError({...error, dificultad: ""})
-        }else{
-            error.dificultad = "La dificultad es obligatoria y debe contener un valor de 1 a 5"
-            setError({...error, dificultad: "La dificultad es obligatoria y debe contener un valor de 1 a 5"})
-        }
-
-        if(formulario.duracion && !Number()){
-            setError({...error, duracion: ""})
-        }else{
-            error.duracion = "La duracion es obligatoria y debe ser un numero"
-            setError({...error, duracion: "La duracion es obligatoria y debe ser un numero"})
-        }
-
-        if(formulario.temporada ){
-            setError({...error, temporada: ""})
-        }else{
-            error.temporada = "La temporada es obligatoria"
-            setError({...error, temporada: "La temporada es obligatoria"})
-        }
-
-        if(formulario.CountryId ){
-            setError({...error, CountryId: ""})
-        }else{
-            error.CountryId = "El CountryId es obligatorio"
-            setError({...error, CountryId: "El CountryId es obligatorio"})
-        }
-
-        return error;
-
-
-    };
-
-    const submitHandler = (event) => {
-        event.preventDefault();  //<-- para que no se recargue la pagina
-
-        alert("Formulario enviado");
-        //const response = await axios.post("http://localhost:3001/activity", formulario)
-        axios.post("http://localhost:3001/activity", formulario)
-        .then(res=>alert(res))
-        .cath(err=>alert(err))
-    };
+            
+            // setError(validate({
+            //     ...formulario,
+            //     [event.target.name]: event.target.value
+            // }))
+        };
+    
+        const submitHandler = async (event) => {
+            event.preventDefault();
+          
+            axios.post("http://localhost:3001/activities", JSON.stringify(formulario), {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            })
+            .then(res => {
+              alert("Formulario enviado correctamente");
+            })
+            .catch(err => {
+              alert(err);
+            });
+          
+            alert("Formulario enviado");
+          };
+          
 
 
     return(
         <>
-                 <h1>Esta es la vista de Form</h1>
 
 
-            <form action="" onSubmit={submitHandler}>
-
-
+            <form action="" onSubmit={submitHandler} className={style.Formulario}>
+            
             <div>
+            <fieldset>
 
-            <label htmlFor="">Nombre de Actividad: </label>
+            <label htmlFor="name">Nombre de Actividad: </label>
             <input type="text" name="name" id="" value={formulario.name} onChange={changeHandler} />
-           {  error.name && <span>{error.name}</span>}
+             {/* {  error.name && <span>{error.name}</span> } */}
+            </fieldset>
      
             </div>
      
             <div>
+            <fieldset>
 
-            <label htmlFor="">Descripcion: </label>
-            <input type="text" name="description" id="" value={formulario.description} onChange={changeHandler}/>
-            {  error.description && <span>{error.description}</span>}
-
+            <label htmlFor="description">Descripcion: </label>
+            <textarea 
+              name='description' 
+              placeholder='Escribe tu mensaje...' 
+              cols="30" rows="5" 
+              type="text" 
+              value={formulario.description}
+              onChange={changeHandler}
+              ></textarea>
+              {/* className={errors.message && 'warning'} */}
+            {/* {  error.description && <span>{error.description}</span>} */}
+            </fieldset>
             </div>
             
             <div>
+                <fieldset>
+                <label htmlFor="dificultad">Dificultad: </label>
+                <p>1<input
+                      type="range"
+                      id="dificultad"
+                      name="dificultad"
+                      min="1"
+                      max="5"
+                      defaultValue="1"
+                      value={formulario.dificultad}
+                      onChange={changeHandler}
+                   />   
+                   5</p>          
+                </fieldset>
+            </div>
+       
 
-            <label htmlFor="">Dificultad: </label>
-            <input type="text" name="dificultad" id="" value={formulario.dificultad} onChange={changeHandler}/>
-            {  error.dificultad && <span>{error.dificultad}</span>}
+            <div>
+            <fieldset>
 
+            
+                <label htmlFor="duracion">Duración (horas):</label>
+                <input 
+                  type="number" 
+                  id="duracion" 
+                  name="duracion"               
+                  min="0" 
+                  step="0.5" 
+                  placeholder="Ingrese la duración en horas" 
+                  value={formulario.duracion} onChange={changeHandler}
+                  required 
+                />
+            {/* {  error.duracion && <span>{error.duracion}</span>} */}
+            </fieldset>
             </div>
 
             <div>
+            <fieldset>
+                <label htmlFor="">Temporada del Año:</label><br/>
+                
+                <input type="radio" name="temporada" value="Verano" checked={formulario.temporada === "Verano"} onChange={changeHandler} />
+                <label htmlFor="temporada">VERANO</label><br/>
+               
+                <input type="radio" name="temporada" value="Otoño" checked={formulario.temporada === "Otoño"} onChange={changeHandler} />
+                <label htmlFor="temporada">OTOÑO</label><br/>
+              
+                <input type="radio" name="temporada" value="Invierno" checked={formulario.temporada === "Invierno"} onChange={changeHandler} />
+                <label htmlFor="temporada">INVIERNO</label><br/>
 
-            <label htmlFor="">Duracion: </label>
-            <input type="text" name="duracion" id="" value={formulario.duracion} onChange={changeHandler}/>
-            {  error.duracion && <span>{error.duracion}</span>}
+                <input type="radio" name="temporada" value="Primavera" checked={formulario.temporada === "Primavera"} onChange={changeHandler} />
+                <label htmlFor="temporada">PRIMAVERA</label><br/>
 
+                {/* <p>Temporada seleccionada: {formulario.temporada}</p> */}
+            {/* {  error.temporada && <span>{error.temporada}</span>} */}
+          
+            </fieldset>
             </div>
 
             <div>
+            <fieldset>
+            <label htmlFor="CountryId">Pais ID: </label>
+            <input type="search" name="CountryId" id="" value={formulario.CountryId} onChange={changeHandler}  />
+           
+            <select name="CountryId" value={formulario.CountryId} onChange={changeHandler}>
+          <option value="">Selecciona un país</option>
+          {/* {paises.map((pais) => (
+            <option key={pais} value={pais}>
+              {pais}
+            </option>
+          ))} */}
+        </select>
+           
+           
+            {/* {  error.CountryId && <span>{error.CountryId}</span>} */}
 
-            <label htmlFor="">Temporada del Año: </label>
-            <input type="text" name="temporada" id="" value={formulario.temporada} onChange={changeHandler}/>
-            {  error.temporada && <span>{error.temporada}</span>}
-
-            </div>
-
-            <div>
-
-            <label htmlFor="">Pais ID: </label>
-            <input type="text" name="CountryId" id="" value={formulario.CountryId} onChange={changeHandler}/>
-            {  error.CountryId && <span>{error.CountryId}</span>}
-
+            </fieldset>
             </div>
             
-                    <button type="submit">SUBMIT</button>
+            
+                    
+                    <input type="submit" className={style.form__submit} value="Entrar"/>
             </form>
 
         </>
@@ -173,19 +201,3 @@ const Form = () => {
 }
 
 export default Form;    
-
-
-
-/*
-{
-    
-    "name": "Tomar mate",
-    "description": "pasear por cada panaderia buscando facturas",
-    "dificultad": "1",
-    "duracion": "60",
-    "temporada": "Verano",
-    "CountryId": "ARG"
-    
-
-}
-*/

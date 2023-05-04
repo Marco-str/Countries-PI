@@ -38,7 +38,7 @@ return(
                     <img src={imagenPersonal} alt="foto de marco, autor del proyecto" />
               </div>
 
-                <div class={style.contact}>
+              <div class={style.contact}>
       
       <a href="https://www.facebook.com/marco.salazartorrealba" class={style.contact__link}>
         <img src={logoFacebook} alt="" class={style.contact__icon}/> 
@@ -64,10 +64,7 @@ return(
       </div>
 
     </div>
-
-  
-    
-             
+        
     </>
 )
 

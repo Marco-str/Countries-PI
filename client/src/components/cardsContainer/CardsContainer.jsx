@@ -2,6 +2,7 @@
 import Card from "../Card/Card";
 import style from "./CardsContainer.module.css";
 
+
 /*REdux*/
 import { useSelector } from "react-redux";
 import { useState } from "react";
@@ -11,17 +12,17 @@ import { useState } from "react";
 
 const CardsContainer = () => {
 
-    const [currentPage, setCurrentPage]= useState(0)
+    /**PAGINADO** */
 
-    
-    
+    const [currentPage, setCurrentPage]= useState(0)
     
     const countries= useSelector(state=>state.countries)
     
     const filterCountries = countries.slice(currentPage, currentPage + 8)
 
-
+    /*** PAGINADO */
     const nextPage = () => {
+        if(currentPage <= countries.length - 8)
         setCurrentPage(currentPage + 8)
     }
 
@@ -65,7 +66,7 @@ const CardsContainer = () => {
             <input type="submit" class={style.form__submit} onClick={nextPage} value="Próxima Página"/>
                         
             </div>
-                     
+                    
         </div>
         
        

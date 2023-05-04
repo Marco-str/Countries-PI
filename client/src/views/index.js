@@ -3,6 +3,7 @@ import Detail from "./Detail/detailPage";
 import Form from "./Form/formPage";
 import Home from "./home/homePage";
 import Landing from "./Login/landingPage";
+import SearchBar from "../components/SearchBar/SearchBar";
 
 
 
@@ -14,5 +15,6 @@ export  {
     Detail,
     Form,
     Home,
-    Landing
+    Landing,
+    SearchBar,
 }

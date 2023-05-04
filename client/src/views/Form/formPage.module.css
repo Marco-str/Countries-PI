@@ -1,0 +1,127 @@
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    cursor: pointer;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    cursor: pointer;
+  }
+ 
+  /***************************************************************************************************************/
+  p{
+    position: left;
+  }
+
+ .Formulario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: 60%;
+  max-width: 800px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-family: inherit;
+
+  background-image: linear-gradient(to top, #c79081 0%, #dfa579 100%);
+
+}
+
+.Formulario > div {
+  width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.Formulario > div > fieldset {
+  border: none;
+  padding: 0;
+}
+
+.Formulario label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.Formulario input[type="text"],
+.Formulario input[type="number"],
+.Formulario input[type="search"],
+.Formulario textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.Formulario input[type="radio"] {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+
+
+/**********************************************************************************************/
+
+.form__submit{
+
+    
+  background-color: #5f4602;
+ color: white;
+ font-family: inherit;
+ font-size: 1.9rem;
+ border: none;
+ border-radius: 1em;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ font-weight: 500;
+ 
+ padding: 1em 1.5em;
+ 
+  width: 10px 10px 50px 10px;
+  position: center;
+ 
+ }
+ 
+ .form__submit:hover{
+     background-color: #4a3501;
+     transition: all 0.3s ease;
+     transform: scaleX(1.1) scaleY(1.1) ;
+     
+ 
+ }
+
+ .form__submit:active {
+
+  --glow-color: rgb(168, 119, 5);
+  --glow-spread-color: rgba(254, 175, 17, 0.781);
+  --enhanced-glow-color: rgb(85, 55, 7);
+  --btn-color: rgb(65, 136, 61);
+
+  box-shadow: 0 0 0.6em .25em var(--glow-color),
+              0 0 2.5em 2em var(--glow-spread-color),
+              inset 0 0 .2em .25em var(--glow-color)
+ }

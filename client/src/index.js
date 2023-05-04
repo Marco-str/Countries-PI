@@ -10,6 +10,8 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
+import barquito from "./Imagenes/barco-pirata.png"
+
 
 
 
@@ -20,6 +22,7 @@ ReactDOM.render(
 
   <BrowserRouter>
   <React.StrictMode>
+    <img src={barquito} alt="barquito" class="element"/>
     <App />
   </React.StrictMode>
   </BrowserRouter>

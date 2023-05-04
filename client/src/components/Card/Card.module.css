@@ -23,6 +23,7 @@
 .card:hover{
     transform: scale(1.1);
     box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+
 }
 
 .name{
@@ -48,9 +49,13 @@
    
 }
 
-.img:hover{
+.img:hover {
     transition: all 0.5s ease-in-out;
     transform: scale(1.1);
     box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+    
 }
 
+
+
+ 

@@ -2,7 +2,10 @@
 // Dependencias
 import CardsContainer from "../../components/cardsContainer/CardsContainer";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import style from "./homePage.module.css";
+import FCheckbox from "../../components/Filtros/FCheckbox";
+
+
+
 
 /* Manejador de estados */
 import { useEffect } from "react";
@@ -11,6 +14,8 @@ import { useDispatch } from "react-redux";
 
 /*Actions */
 import {getCountries} from "../../redux/actions/actions"
+
+
 
 
 
@@ -31,12 +36,11 @@ const Home = ({ onSearch }) => {
 
     return(
          <>
+                    <SearchBar />
 
+                    <FCheckbox />
+                    
                      <CardsContainer />
-
-            
-            
-
         
         </>
     )

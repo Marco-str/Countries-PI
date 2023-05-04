@@ -21,6 +21,8 @@
    
     text-decoration: none;
 
+    z-index: 100;
+
 }
 
 
@@ -60,3 +62,6 @@
                 0 0 2.5em 2em var(--glow-spread-color),
                 inset 0 0 .2em .25em var(--glow-color)
   }
+
+
+  

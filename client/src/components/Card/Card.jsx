@@ -1,7 +1,9 @@
 
 import style from './Card.module.css'
 
+
 import { Link } from 'react-router-dom'
+
 
 
 
@@ -10,7 +12,7 @@ const Card = ({name, flag, continente, id })=> {
     
    
     return(
-        
+        <>
         
                 <div className={style.card}>
                 <h1 className={style.name}> {name}</h1>
@@ -21,8 +23,10 @@ const Card = ({name, flag, continente, id })=> {
                   
                 <p>Continente:  {continente}</p>        
                     </div>
+            
 
    
+        </>
     )
 }
 export default Card;
