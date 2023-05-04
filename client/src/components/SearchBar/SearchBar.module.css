@@ -1,10 +1,16 @@
-.cardsContainer{
 
-    /*border: 1px solid black;
-    background-color: rgb(238, 196, 145);
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);*/
-    
+
+.searchContainer{
+
+    display: flex;
+    margin-left: 200px;
+    margin-top: -10px;
+}
+
+
+.cardsContainer{
  
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

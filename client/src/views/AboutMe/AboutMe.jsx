@@ -20,17 +20,13 @@ return(
 
         <div className={style.tituloPrincipal}>
 
-             <h1>Proyecto Individual de Henry:  Countries</h1>
+             <h1>  Countries App </h1>
         </div>
 
         <div className={style.datosPersonales}>
 
-                <h1>Mi Nombre es Marco Salazar Torrealba</h1>
-                <p>Actualmente tengo 25 años</p>
-                <p>Vivo en Buenos Aires La Plata</p>
-                <p>Estudio en Henry</p>
-                <p>Me gusta la programacion, y actualmetne estoy desarrollaando mi proyecto individual</p>
-
+                <h1> Marco Salazar Torrealba</h1>
+         
         </div>
                 
               <div className={style.imagen}>
@@ -38,25 +34,25 @@ return(
                     <img src={imagenPersonal} alt="foto de marco, autor del proyecto" />
               </div>
 
-              <div class={style.contact}>
+     <div class={style.contact}>
       
-      <a href="https://www.facebook.com/marco.salazartorrealba" class={style.contact__link}>
+      <a href="https://www.facebook.com/marco.salazartorrealba" class={style.contact__link} target="_blank" rel="noreferrer">
         <img src={logoFacebook} alt="" class={style.contact__icon}/> 
       </a>
       
-      <a href="https://twitter.com/marcos_nattu" class={style.contact__link}>
+      <a href="https://twitter.com/marcos_nattu" class={style.contact__link} target="_blank" rel="noreferrer">
         <img src={logoTwitter} alt="" class={style.contact__icon}/>
       </a>
       
-      <a href="https://github.com/Marco-str" class={style.contact__link}>
+      <a href="https://github.com/Marco-str" class={style.contact__link} target="_blank" rel="noreferrer">
         <img src={logoGithub} alt="" class={style.contact__icon}/>
       </a>
 
-      <a href="https://www.linkedin.com/in/marcosalazartorrealba/" class={style.contact__link}>
+      <a href="https://www.linkedin.com/in/marcosalazartorrealba/" class={style.contact__link} target="_blank"rel="noreferrer">
         <img src={logoLinkedin} alt="" class={style.contact__icon}/>
       </a>
 
-      <a href="https://www.instagram.com/marcos_str/" class={style.contact__link}>
+      <a href="https://www.instagram.com/marcos_str/" class={style.contact__link} target="_blank" rel="noreferrer">
         <img src={logoInstagram} alt="" class={style.contact__icon}/>
       </a>
 

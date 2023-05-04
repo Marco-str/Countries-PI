@@ -1,11 +1,23 @@
 
 
+.error {
+  color: rgb(214, 81, 81);
+}
+span{
+ 
+  font-size: 1.5rem;
+}
+
+
+/***************************************************************************************************************/
 input[type="range"] {
     -webkit-appearance: none;
     height: 10px;
-    background-color: #ddd;
+    width: 50%;
+    
+    background-color: #528b5f;
     border-radius: 5px;
-    margin: 10px;
+    margin-left: 180px;
     outline: none;
   }
   input[type="range"]::-webkit-slider-thumb {
@@ -13,21 +25,31 @@ input[type="range"] {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #4CAF50;
+    background-color: #01ff09;
     cursor: pointer;
   }
   
   input[type="range"]::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    background-color: #4CAF50;
+    background-color: #000b01;
     cursor: pointer;
+  } 
+
+  .range_value {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
   }
  
   /***************************************************************************************************************/
   p{
-    position: left;
+    position: center;
+    align-items: center;
+    justify-content: center;
+    
+    
+    
   }
 
  .Formulario {

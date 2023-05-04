@@ -68,11 +68,3 @@ export const postActivity = (formulario) => {
 
 /************************************************************** */
 
-
-// export const filterCountriesByID = () => {
-    
-//         dispatch({type: FILTER_COUNTRIES_BYID});
-        
-    
-// };
-

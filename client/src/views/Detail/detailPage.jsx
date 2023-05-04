@@ -72,7 +72,7 @@ const Detail = () =>{
                                   <h1>{activity.name}</h1>
                                  <p>Descripcion: </p> <h2>{activity.description}</h2>
                                  <p>Dificultad: </p> <h1>{activity.dificultad}</h1>
-                                 <p>Duración:</p>  <h1>{activity.duracion}minutos</h1>
+                                 <p>Duración:</p>  <h1>{activity.duracion}(horas)</h1>
                                  <p>Temporada:</p>  <h1>{activity.temporada}</h1>
                               </div>
                                ))}

@@ -1,6 +1,6 @@
 
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 
@@ -11,14 +11,15 @@ import style from "./SearchBar.module.css"
 
 const SearchBar = () => {
 
-    /* Boton de regreso */
+
+/****************************************** Boton de regreso********************************************************** */
   
    const reset = () => {
 
    return window.location.reload();
  }
 
-    /*** Por Nombre */
+/********************************************* Por Nombre *****************************************************/
     const [country, setCountry] = useState([])
     
     const [search, setSearch] = useState('')
@@ -39,7 +40,7 @@ const SearchBar = () => {
     }
 
 
-    
+/********************************************* MANEJADORES DE EVENTOS *****************************************************/   
     const handleChange = (e) => {
         setSearch(e.target.value)
         
@@ -52,28 +53,28 @@ const SearchBar = () => {
     }
 
 
-
+/********************************************* SEARCHBAR *****************************************************/
     return(
         <>
-
 
         <div>
             <br />
             <br />
         </div>
+
+
+        <div className={style.searchContainer}>
                 <input type="text" className={style.form__search} placeholder='Buscar info' value={search} onChange={handleChange}/>
                 <input type="submit" className={style.form__submit} value="Buscar" onClick={submitHandler}/>
+        </div>
         
 
-
-
+{/* /********************************************* CARDS ***************************************************** */}
 
 
             <div className={style.cardsContainer}>
                   { country.map(elemento=> {
                 return( <Card 
-
-              
 
                 id={elemento.id}
                 name={elemento.name}
@@ -84,17 +85,20 @@ const SearchBar = () => {
                 area={elemento.area}
                 poblacion={elemento.poblacion}
                 estadoSoberanoIndependiente={elemento.estadoSoberanoIndependiente}
+                 
                  />
                  
                 ) })} 
             </div>
        
-       
-            {
+
+{/* /********************************************* BOTON DE RESET ***************************************************** */}     
+
+        {
             Object.keys(country).length > 0
-            ? ( <input type="submit" class={style.form__submit} onClick={reset} value="Reset"/>) 
+            ? ( <input type="submit" class={style.form__submit} onClick={reset} value="Reset"/>)  // <-----| Si el objeto tiene mas de 0 keys, muestra el boton de reset
             : null
-            }
+        }
            
        
         </>

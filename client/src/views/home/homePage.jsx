@@ -36,9 +36,12 @@ const Home = ({ onSearch }) => {
 
     return(
          <>
+         <div>
+
                     <SearchBar />
 
                     <FCheckbox />
+         </div>
                     
                      <CardsContainer />
         

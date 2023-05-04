@@ -1,6 +1,6 @@
 /*Action types*/
 
-import { GET_COUNTRIES , GET_COUNTRY, GET_ACTIVITIES, POST_ACTIVITY, FILTER_COUNTRIES_BYID} from "./actions/types";
+import { GET_COUNTRIES , GET_COUNTRY, GET_ACTIVITIES, POST_ACTIVITY, FILTER} from "./actions/types";
 
 
 
@@ -8,6 +8,8 @@ import { GET_COUNTRIES , GET_COUNTRY, GET_ACTIVITIES, POST_ACTIVITY, FILTER_COUN
 const initialState = {
 
     countries : [],
+
+    continent : [],
 
     
 
@@ -36,9 +38,16 @@ const rootReducer = (state = initialState, action) => {
             return {...state, countries: action.payload, 
             };
 
-        case FILTER_COUNTRIES_BYID:
-            return {...state, countries: action.payload, 
+        case FILTER:
+            const newFilter = state.continent.filter((continent) => continent.continent === action.payload)
+
+
+            return{
+                ...state,
+                Continent: newFilter
+
             };
+
 
         default:
             return {...state};

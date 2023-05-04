@@ -1,4 +1,5 @@
 import { useState} from "react";
+import { useEffect } from "react";
 
 
 import axios from "axios";
@@ -18,50 +19,79 @@ const Form = () => {
     });
 
 
-    // const [error , setError] = useState({
+//***************VALIDACIONES************************************************************************** */
 
-    //     name: "",
-    //     description: "",
-    //     dificultad: "",
-    //     duracion: "",
-    //     temporada: "",
-    //     CountryId: ""
-    // });
+
+    const [errors , setErrors] = useState({
+
+        name: "",
+        description: "",
+        dificultad: "",
+        duracion: "",
+        temporada: "",
+        CountryId: ""
+    });
 
     
+    const validate = (formulario) => {
     
+      const errors = {}
+
+      if(formulario.name.length < 3){
+          errors.name= "Debe Asignarle un Nombre a la Actividad"
+      }
+       if(formulario.description.length < 10){
+          errors.description= "La Descripcion debe Tener al menos 10 Caracteres"
+      }
+       if (!formulario.dificultad){
+          errors.dificultad = "Debe Seleccionar un nivel de Dificultad"
+      }
+       if (!formulario.duracion){
+          errors.duracion = "Debe Ingresar al menos alguna Cantidad de Horas"
+      }
+       if (!formulario.temporada){
+          errors.temporada = "Debe Seleccionar una Temporada del Año"
+      }
+       if (!formulario.CountryId){
+          errors.CountryId = "Debe Seleccionar  al menos un Pais a la Actividad"
+      }
+
+      return errors;
+    };
+
+
+ /***************** Manejadores de los eventos del FORM ******************************************************************************************* */
+
+
+    useEffect(() => {                    //useEffect para que se ejecute cada vez que cambie el formulario
+        setErrors(validate(formulario))
+    }, [formulario])
+
+
+        function changeHandler(event) {
+          
+          setFormulario({                       //<------|  Cada vez que cambie el formulario, se actualiza el estado
+             ...formulario,
+              [event.target.name]: event.target.value });
+        
+          setErrors(
+            validate({                          //<------Le agregamos el validate para que valide cada vez que cambie el formulario
+              ...formulario,
+              [event.target.name]: event.target.value
+          }))
+        }
     
-    // const validate = (formulario)=>{
-    //     if (formulario.name) {
-    //         setError("");
-    //     } else {
-    //         setError("El nombre de la actividad es obligatorio");
-    //     }
-    // };
-    
-    // useEffect(() => {
-    //     validate()
-    // }, [formulario]) 
-    
-    // const [paises, setPaises] = useState([]);
-    
-        const changeHandler = (event) => {
-            setFormulario({
+        const submitHandler = async (event) => {
+            event.preventDefault();               //<------|  Previene que se recargue la pagina al enviar el formulario
+
+            const aux = Object.keys(errors)       //<------|  Si el objeto errors tiene alguna propiedad, significa que hay errores
+             if(aux.length===0){
+              setFormulario({
                 ...formulario,
                 [event.target.name]: event.target.value
             })
-
-            
-            // setError(validate({
-            //     ...formulario,
-            //     [event.target.name]: event.target.value
-            // }))
-        };
-    
-        const submitHandler = async (event) => {
-            event.preventDefault();
-          
-            axios.post("http://localhost:3001/activities", JSON.stringify(formulario), {
+  
+            axios.post("http://localhost:3001/activities", JSON.stringify(formulario), {  //<------|  Enviamos el formulario a la ruta /activities en formato JSON(me aseguro que llegue en ese formato si osi)
               headers: {
                 'Content-Type': 'application/json'
               }
@@ -72,84 +102,91 @@ const Form = () => {
             .catch(err => {
               alert(err);
             });
-          
-            alert("Formulario enviado");
           };
+        };
           
+
+/*************************FORMULARIO***************************************************************** */
 
 
     return(
         <>
 
-
             <form action="" onSubmit={submitHandler} className={style.Formulario}>
-            
+
+
+{/* /****************************************************************************************** */ }      
             <div>
             <fieldset>
 
             <label htmlFor="name">Nombre de Actividad: </label>
             <input type="text" name="name" id="" value={formulario.name} onChange={changeHandler} />
-             {/* {  error.name && <span>{error.name}</span> } */}
+            { errors.name 
+            ? <span className={style.error}>❌{errors.name}</span>
+            : <span >✅</span> } 
+           
             </fieldset>
-     
             </div>
      
+
+{/* /****************************************************************************************** */ }
+
+
             <div>
             <fieldset>
 
             <label htmlFor="description">Descripcion: </label>
-            <textarea 
-              name='description' 
-              placeholder='Escribe tu mensaje...' 
-              cols="30" rows="5" 
-              type="text" 
-              value={formulario.description}
-              onChange={changeHandler}
-              ></textarea>
-              {/* className={errors.message && 'warning'} */}
-            {/* {  error.description && <span>{error.description}</span>} */}
+            <textarea name='description' placeholder='Escribe tu mensaje...' cols="30" rows="5" type="text" value={formulario.description} onChange={changeHandler} ></textarea>
+            {  errors.description
+            ? <span className={style.error} >❌{errors.description}</span>
+            : <span >✅</span>} 
+            
             </fieldset>
             </div>
-            
+
+
+{/* /****************************************************************************************** */ }      
+
+
             <div>
-                <fieldset>
+            <fieldset>
+
                 <label htmlFor="dificultad">Dificultad: </label>
-                <p>1<input
-                      type="range"
-                      id="dificultad"
-                      name="dificultad"
-                      min="1"
-                      max="5"
-                      defaultValue="1"
-                      value={formulario.dificultad}
-                      onChange={changeHandler}
-                   />   
-                   5</p>          
-                </fieldset>
+                <p>
+                  <input type="range" id="dificultad" name="dificultad" min="1" max="5" defaultValue="1" value={formulario.dificultad} onChange={changeHandler} />
+                  <span className={style.range_value}>{formulario.dificultad}</span> 
+                </p>
+               
+             {  errors.dificultad 
+             ? <span className={style.error} >❌{errors.dificultad}</span>
+             : <span >✅</span> }           
+         
+            </fieldset>
             </div>
        
 
+{/* /****************************************************************************************** */ }
+
+
             <div>
             <fieldset>
 
-            
                 <label htmlFor="duracion">Duración (horas):</label>
-                <input 
-                  type="number" 
-                  id="duracion" 
-                  name="duracion"               
-                  min="0" 
-                  step="0.5" 
-                  placeholder="Ingrese la duración en horas" 
-                  value={formulario.duracion} onChange={changeHandler}
-                  required 
-                />
-            {/* {  error.duracion && <span>{error.duracion}</span>} */}
+                <input type="number" id="duracion" name="duracion" min="0.5" step="0.5"  placeholder="Ingrese la duración en horas"  value={formulario.duracion} onChange={changeHandler} required />
+            {  errors.duracion 
+            ? <span className={style.error} >❌{errors.duracion}</span>
+            : <span >✅</span> } 
+          
             </fieldset>
             </div>
 
+
+{/* /****************************************************************************************** */ }
+
+
             <div>
             <fieldset>
+
                 <label htmlFor="">Temporada del Año:</label><br/>
                 
                 <input type="radio" name="temporada" value="Verano" checked={formulario.temporada === "Verano"} onChange={changeHandler} />
@@ -162,42 +199,48 @@ const Form = () => {
                 <label htmlFor="temporada">INVIERNO</label><br/>
 
                 <input type="radio" name="temporada" value="Primavera" checked={formulario.temporada === "Primavera"} onChange={changeHandler} />
-                <label htmlFor="temporada">PRIMAVERA</label><br/>
-
-                {/* <p>Temporada seleccionada: {formulario.temporada}</p> */}
-            {/* {  error.temporada && <span>{error.temporada}</span>} */}
+                <label htmlFor="temporada">PRIMAVERA</label><br/> 
+           {  errors.temporada 
+           ? <span className={style.error} >❌{errors.temporada}</span>
+           : <span >✅</span>} 
           
             </fieldset>
             </div>
 
+
+{/* /****************************************************************************************** */ }
+           
+           
             <div>
             <fieldset>
+
             <label htmlFor="CountryId">Pais ID: </label>
             <input type="search" name="CountryId" id="" value={formulario.CountryId} onChange={changeHandler}  />
-           
-            <select name="CountryId" value={formulario.CountryId} onChange={changeHandler}>
-          <option value="">Selecciona un país</option>
-          {/* {paises.map((pais) => (
-            <option key={pais} value={pais}>
-              {pais}
-            </option>
-          ))} */}
-        </select>
-           
-           
-            {/* {  error.CountryId && <span>{error.CountryId}</span>} */}
+        {  errors.CountryId 
+        ? <span className={style.error} >❌{errors.CountryId}</span>
+        : <span >✅</span>} 
 
             </fieldset>
             </div>
+
+
+{/* /****************************************************************************************** */ }
             
-            
-                    
-                    <input type="submit" className={style.form__submit} value="Entrar"/>
+                   
+        {
+             Object.keys(errors).length ===0                                                  //<------|  Si el objeto errors tiene alguna propiedad, significa que hay errores, no se habilita el boton
+             ? ( <input type="submit" className={style.form__submit} value="Entrar"/>) 
+             : null
+        }
+
+
+{/* /****************************************************************************************** */}        
+           
+           
             </form>
 
         </>
     )
-
 }
 
 export default Form;    

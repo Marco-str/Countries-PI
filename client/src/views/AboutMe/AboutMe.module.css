@@ -1,8 +1,6 @@
 
 
 
-
-
 .container{
   
   border: 5px solid black;
@@ -21,7 +19,7 @@
    
    height:100vh;
   
-    padding: 1em 1em;
+    padding: 3em 1em;
     margin-top: 50px;;
     margin-left:150px;
     margin-right: 300px;
@@ -47,9 +45,9 @@
     margin-bottom: 10px;
     margin-left: 10px;
     margin-bottom:10px;
-    display: flex;
-    align-items: start;
-    justify-content: start;
+    display: column;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
   
   .imagen{
@@ -58,7 +56,7 @@
    
     justify-content: right;
     align-items: right;
-    margin-left: 900px;
+    margin-left: 550px;
     
    
 }
@@ -75,16 +73,16 @@
     justify-content: center;
     gap: 2.5rem;
     position: relative;
-    z-index: 10;
+   
   }
   .contact__link {
    
-    width: 35%;
-    height: 35%;
+    width: 15%;
+ 
     border-radius: 50%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
   }
 
   .contact__icon {
