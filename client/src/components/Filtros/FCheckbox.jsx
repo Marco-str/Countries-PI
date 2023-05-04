@@ -28,11 +28,11 @@ const FCheckbox = () => {
        setSelectedContinent(event.target.value);
    };
 
-   const submitHandler = (e) => {
-    e.preventDefault()
-    buscar(search)
-    setSearch('')
-}
+//    const submitHandler = (e) => {
+//     e.preventDefault()
+//     buscar(search)
+//     setSearch('')
+// }
 
 
 /***************************************************** */
@@ -56,27 +56,27 @@ const FCheckbox = () => {
    
       <div>
 
-        <input type="checkbox" name="continent" value="Asia" onChange={changeHandler} onClick={submitHandler} />
+        <input type="checkbox" name="continent" value="Asia" onChange={changeHandler}  />
           <label> Asia</label>
 
 
         <input
-          type="checkbox" name="continent" value="Africa" onChange={changeHandler} onClick={submitHandler} />
+          type="checkbox" name="continent" value="Africa" onChange={changeHandler}  />
           <label> Africa</label>
 
 
-        <input type="checkbox" name="continent" value="America" onChange={changeHandler} onClick={submitHandler} />
+        <input type="checkbox" name="continent" value="America" onChange={changeHandler}  />
           <label> America</label>
 
-        <input  type="checkbox"   name="continent"  value="Europe" onChange={changeHandler} onClick={submitHandler} />
+        <input  type="checkbox"   name="continent"  value="Europe" onChange={changeHandler}  />
           <label> Europe</label>
 
 
-        <input  type="checkbox"  name="continent"  value="Oceania" onChange={changeHandler} onClick={submitHandler} />
+        <input  type="checkbox"  name="continent"  value="Oceania" onChange={changeHandler}  />
          <label> Oceania</label>
 
 
-        <input  type="checkbox"   name="continent"  value="Antartida"   onChange={changeHandler} onClick={submitHandler} />
+        <input  type="checkbox"   name="continent"  value="Antartida"   onChange={changeHandler}  />
           <label> Antartida</label>
 
       </div>
