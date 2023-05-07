@@ -1,7 +1,7 @@
 .mainContainer{
     
     
-    background-color: rgb(74, 69, 42);
+    background-image: linear-gradient(to top, #834d18 0%, #483318 100%);
     color: white;
 
     opacity: 0.9;

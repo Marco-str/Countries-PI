@@ -1,108 +1,83 @@
-
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import {
+  resetFilters,
+  setContinentFilter,
+  setPopulationFilter,
+  setAlphabeticalFilter,
+} from '../../redux/actions/actions';
+import style from "./Filters.module.css";
 
 const FCheckbox = () => {
-
-  /***************************************************** */
-
-
-   const continent = useSelector((state) => state.continent);
-
-   const [selectedContinent, setSelectedContinent] = useState("");
-   const [filteredCountries, setFilteredCountries] = useState([]);
+  const dispatch = useDispatch();
+  const [filters, setFilters] = useState({
+    continent: "",
+    population: "",
+    alphabetical: ""
+  });
 
 
-   
-   const filterCountries = () => {
-     const filtered = continent.filter(
-       (continent) => continent.continent === selectedContinent
-       );
-       setFilteredCountries(filtered);
-      };
-      
-      
-      
-  const changeHandler = (event) => {
-       setSelectedContinent(event.target.value);
-   };
+  function handleFilter(event) {
+    event.preventDefault();
+    setFilters({ ...filters, continent: event.target.value });
+  }
 
-//    const submitHandler = (e) => {
-//     e.preventDefault()
-//     buscar(search)
-//     setSearch('')
-// }
+  function handleOrderByPopulation(event) {
+    event.preventDefault();
+    setFilters({ ...filters, population: event.target.value });
+  }
 
+  function handleOrderByAlfabeto(event) {
+    event.preventDefault();
+    setFilters({ ...filters, alphabetical: event.target.value });
+  }
 
-/***************************************************** */
+  function resetCountriesButton() {
+    dispatch(resetFilters());
+    setFilters({ continent: "", population: "", alphabetical: "" })
+    window.location.reload();
+  }
 
+  function applyFiltersButton() {
+    dispatch(setContinentFilter(filters.continent));
+    dispatch(setPopulationFilter(filters.population));
+    dispatch(setAlphabeticalFilter(filters.alphabetical));
+  }
 
-
-  //  const [categories, setCategories] = useState("");
-
-  //  useEffect(  async () => {
-  //   await axios.get("http:localhost:3001/countries")
-  //    .then((response) => response.json())
-  //    .then((data) => setCategories(data));
-  //  }, [categories]);
-  //  console.log(categories);
-
-
-/*********************************** CHECK BOX DE FILTRADO *************************************************** */
   return (
     <>
-
-   
       <div>
+        <select name="order" defaultValue={"DEFAULT"} onChange={handleOrderByPopulation} className={style.form__search}>
+          <option value="DEFAULT" disable>
+            Ordenar por Cantidad de Poblacion
+          </option>
+          <option value="Ascendente">Orden Ascendente</option>
+          <option value="Descendente">Orden Descendente</option>
+        </select>
 
-        <input type="checkbox" name="continent" value="Asia" onChange={changeHandler}  />
-          <label> Asia</label>
+        <select name="order" defaultValue={"DEFAULT"} onChange={handleOrderByAlfabeto} className={style.form__search}>
+          <option value="DEFAULT" disable>
+            Ordenar por Orden Alfabetico
+          </option>
+          <option value="A-Z">Ordenar por orden alfabetico A-Z</option>
+          <option value="Z-A">Ordenar por orden alfabetico Z-A</option>
+        </select>
 
+        <select name="filter" defaultValue={"DEFAULT"} onChange={handleFilter} className={style.form__search}>
+          <option value="DEFAULT" disable>
+            Ordenar por Continente
+          </option>
+          <option value="Americas">Americas</option>
+          <option value="Africa">Africa</option>
+          <option value="Europe">Europa</option>
+          <option value="Asia">Asia</option> 
+          <option value="Antarctic">Antartida</option>
+          <option value="Oceania">Oceania</option> 
+        </select>
 
-        <input
-          type="checkbox" name="continent" value="Africa" onChange={changeHandler}  />
-          <label> Africa</label>
-
-
-        <input type="checkbox" name="continent" value="America" onChange={changeHandler}  />
-          <label> America</label>
-
-        <input  type="checkbox"   name="continent"  value="Europe" onChange={changeHandler}  />
-          <label> Europe</label>
-
-
-        <input  type="checkbox"  name="continent"  value="Oceania" onChange={changeHandler}  />
-         <label> Oceania</label>
-
-
-        <input  type="checkbox"   name="continent"  value="Antartida"   onChange={changeHandler}  />
-          <label> Antartida</label>
-
+        <button onClick={applyFiltersButton} class={style.form__submit}>Aplicar Filtro</button>
+        <button onClick={resetCountriesButton} class={style.form__submit}>Borrar Filtro</button>
       </div>
-
-
-               <button onClick={filterCountries}>Filtrar</button>
-
-
-{/* /***************************************************** ***************************************************** */}
-
-
-      {filteredCountries.length > 0 ? (
-        <div>
-          <h2>Paises de {selectedContinent}:</h2>
-          <ul>
-            {filteredCountries.map((country) => (
-              <li key={country.alpha2Code}>
-                {country.name} ({country.alpha2Code})
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : (
-        <p>Selecciona un continente para filtrar los países</p>
-      )}
-
     </>
   );
 };

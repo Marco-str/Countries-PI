@@ -9,16 +9,13 @@ import style from './DetailPage.module.css'
 
 
 
+
 const Detail = () =>{
 
-   /* Boton de regreso */
-  
-   const prevPage = () => {
-      window.history.back();
-   }
+ 
 
+/***************************Country ID************************************/
 
-    /*Country ID*/
 
     const{ id } = useParams()
     const [country, setCountry] = useState({})
@@ -51,7 +48,7 @@ const Detail = () =>{
                 <p> Nombre del pais:</p><h1>{country.name}</h1>
                 <p>Continente:   </p> <h2>{country.continente}</h2>
                 <p> Iniciales:  </p> <h2>{country.id}</h2>
-                <p>Capital:  </p>  <h2>{country.capital}</h2>
+                <p>Capital:  </p>  <h2>{country.capital?.replace(/[{()}]/g, '')}</h2>
                 <p>Subregion:</p> <h2>{country.subregion}</h2>
                 <p>Area:  </p> <h2>{country.area}km2</h2>
                 <p>Poblacion: </p><h2>{country.poblacion}personas </h2>
@@ -81,12 +78,7 @@ const Detail = () =>{
             </div>
       </div>
 
-      <div className={style.boton}>
-            
-            <input type="submit" class={style.form__submit} onClick={prevPage} value="Volver"/>
-            
-                        
-            </div>
+     
 
 </>
     )

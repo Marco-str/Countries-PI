@@ -19,7 +19,7 @@ import {getCountries} from "../../redux/actions/actions"
 
 
 
-const Home = ({ onSearch }) => {
+const Home = () => {
 
 
     

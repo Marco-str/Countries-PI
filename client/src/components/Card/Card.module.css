@@ -1,6 +1,6 @@
 .card{
     border: 5px solid black;
-    background-color: rgb(162, 124, 78);
+    background-image: linear-gradient(to top, #b78d62 0%, #9e6030 100%);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

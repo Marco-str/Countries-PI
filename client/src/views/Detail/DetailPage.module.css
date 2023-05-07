@@ -22,7 +22,7 @@ p{
 .card{
      border: 5px solid black;
 
-    background-color: rgb(162, 124, 78);
+     background-image: linear-gradient(to top, #c37324 0%, #7b5728 100%);
     border-radius: 20%;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
     height: 75vh;
@@ -45,9 +45,11 @@ p{
 
 .img{
 
-    width: 600px;
+    padding-top: 1em;
+    margin-right: 5.2em;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+    width: fit-content;
     height: 500px;
-    
    
     
    
@@ -80,7 +82,7 @@ p{
     border-radius: 15%;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
-    background-color: rgb(189, 161, 127); 
+    background-image: linear-gradient(to top, #c37324 0%, #7b5728 100%); 
     padding: 20px;
 }
 

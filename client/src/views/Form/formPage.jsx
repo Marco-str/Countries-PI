@@ -1,5 +1,7 @@
 import { useState} from "react";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getCountries } from "../../redux/actions/actions";
 
 
 import axios from "axios";
@@ -8,6 +10,30 @@ import style from "./formPage.module.css";
 
 const Form = () => {
 
+
+/**************************************COUNTRY ID*********************************************** */
+
+
+const dispatch = useDispatch();
+
+const countries = useSelector((state) => state.countries);
+
+
+const  allCountryId = countries.map((id) => id.id);
+
+
+useEffect(() => {
+  dispatch(getCountries());
+}, [dispatch]);
+
+
+
+
+
+
+
+
+
     const [formulario , setFormulario] = useState({
 
         name: "",
@@ -15,7 +41,7 @@ const Form = () => {
         dificultad: "",
         duracion: "",
         temporada: "",
-        CountryId: ""
+        CountryId: []
     });
 
 
@@ -29,7 +55,7 @@ const Form = () => {
         dificultad: "",
         duracion: "",
         temporada: "",
-        CountryId: ""
+        CountryId: []
     });
 
     
@@ -46,13 +72,13 @@ const Form = () => {
        if (!formulario.dificultad){
           errors.dificultad = "Debe Seleccionar un nivel de Dificultad"
       }
-       if (!formulario.duracion){
+       if (!formulario.duracion || formulario.duracion <= 0){
           errors.duracion = "Debe Ingresar al menos alguna Cantidad de Horas"
       }
        if (!formulario.temporada){
           errors.temporada = "Debe Seleccionar una Temporada del Año"
       }
-       if (!formulario.CountryId){
+       if (!formulario.CountryId || formulario.CountryId.length === 0){
           errors.CountryId = "Debe Seleccionar  al menos un Pais a la Actividad"
       }
 
@@ -63,25 +89,34 @@ const Form = () => {
  /***************** Manejadores de los eventos del FORM ******************************************************************************************* */
 
 
-    useEffect(() => {                    //useEffect para que se ejecute cada vez que cambie el formulario
+    useEffect(() => {                    // <------| useEffect para que se ejecute cada vez que cambie el formulario
         setErrors(validate(formulario))
     }, [formulario])
 
 
-        function changeHandler(event) {
-          
-          setFormulario({                       //<------|  Cada vez que cambie el formulario, se actualiza el estado
-             ...formulario,
-              [event.target.name]: event.target.value });
-        
-          setErrors(
-            validate({                          //<------Le agregamos el validate para que valide cada vez que cambie el formulario
-              ...formulario,
-              [event.target.name]: event.target.value
-          }))
+
+
+    function changeHandler(event) {
+
+      
+      if ( event.target.name === "CountryId") {
+        if (!formulario.CountryId.includes( event.target.value)) {  // <------|  Si el array CountryId no incluye el value, lo agrega
+          setFormulario({
+            ...formulario,
+            CountryId: [...formulario.CountryId,  event.target.value]  // <------|  Agrega el value al array CountryId
+          });
         }
+      } else {
+        setFormulario({ ...formulario, [ event.target.name]:  event.target.value });
+      }
+    }
+     
+
     
-        const submitHandler = async (event) => {
+     
+
+    
+   const submitHandler = async (event) => {
             event.preventDefault();               //<------|  Previene que se recargue la pagina al enviar el formulario
 
             const aux = Object.keys(errors)       //<------|  Si el objeto errors tiene alguna propiedad, significa que hay errores
@@ -105,6 +140,13 @@ const Form = () => {
           };
         };
           
+
+        const removeSelected = (id) => {
+          const newSelected = formulario.CountryId.filter((countryId) => countryId !== id);
+          setFormulario({ ...formulario, CountryId: newSelected });
+        };
+
+        
 
 /*************************FORMULARIO***************************************************************** */
 
@@ -211,11 +253,35 @@ const Form = () => {
 {/* /****************************************************************************************** */ }
            
            
-            <div>
-            <fieldset>
+        <div>
 
-            <label htmlFor="CountryId">Pais ID: </label>
-            <input type="search" name="CountryId" id="" value={formulario.CountryId} onChange={changeHandler}  />
+            <fieldset>
+          <div>
+
+                      <label htmlFor="CountryId">País ID:</label>
+                      <select name="CountryId" id="" value={formulario.CountryId} onChange={changeHandler}>
+                        <option value="">Selecciona un país</option>
+                        {
+                        allCountryId.map((id) => ( <option value={id} key={id}> {id} </option> ))
+                        }                     
+                      </select>
+                    
+                  <div className={style.divCountries}>
+                             {formulario.CountryId.length > 0 && (
+                          
+                          <div>
+                           
+                            <ul>
+                             {
+                             formulario.CountryId.map((id) =>  <div  className={style.divCountry} key={id}>
+                             <button onClick={() => removeSelected(id)}>X</button>{id}</div>  )   
+                            }
+                            </ul>
+                          </div>
+                       )}
+                  </div>
+            </div>
+
         {  errors.CountryId 
         ? <span className={style.error} >❌{errors.CountryId}</span>
         : <span >✅</span>} 
@@ -229,7 +295,7 @@ const Form = () => {
                    
         {
              Object.keys(errors).length ===0                                                  //<------|  Si el objeto errors tiene alguna propiedad, significa que hay errores, no se habilita el boton
-             ? ( <input type="submit" className={style.form__submit} value="Entrar"/>) 
+             ? ( <input type="submit" className={style.form__submit} value="Enviar Formulario"/>) 
              : null
         }
 

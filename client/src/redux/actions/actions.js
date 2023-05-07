@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 /*ACTIONS TYPES*/
-import { GET_COUNTRIES , GET_COUNTRY, GET_ACTIVITIES, POST_ACTIVITY} from "./types.js";
+import { GET_COUNTRIES , GET_COUNTRY, GET_ACTIVITIES, POST_ACTIVITY, RESET_FILTERS,SET_CONTINENT_FILTER,SET_POPULATION_FILTER,SET_ALPHABETICAL_FILTER } from "./types.js";
 
 
 
@@ -68,3 +68,25 @@ export const postActivity = (formulario) => {
 
 /************************************************************** */
 
+
+
+/************************************************************** */
+
+export const setContinentFilter = (continent) => ({
+  type: SET_CONTINENT_FILTER,
+  payload: continent,
+});
+
+export const setPopulationFilter = (order) => ({
+  type: SET_POPULATION_FILTER,
+  payload: order,
+});
+
+export const setAlphabeticalFilter = (order) => ({
+  type: SET_ALPHABETICAL_FILTER,
+  payload: order,
+});
+
+export const resetFilters = () => ({
+  type: RESET_FILTERS,
+});

@@ -29,7 +29,7 @@
 .form__submit{
 
     
-    background-color: #5f4602;
+    background-image: linear-gradient(to top, #834d18 0%, #483318 100%);
    color: white;
    font-family: inherit;
    font-size: 1.9rem;

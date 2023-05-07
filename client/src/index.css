@@ -32,13 +32,11 @@ code {
 .element{
   width: 100px;
   height: 100px;
+  position: relative;
   
   border-radius: 50%;
   z-index: -270;
 
-
-  /* animation-name: cambia-color; */
-  /* animation-name: crecer; */
   animation-name: mover;
   animation-duration: 12s;
   animation-timing-function:linear;
@@ -48,21 +46,11 @@ code {
 
 
   animation-fill-mode: forwards; /*una vez que termina la animacion, se queda en el ultimo estado*/
-  /* animation-fill-mode: backwards; */ /*una vez que termina la animacion, se queda en el primer estado*/
-  /* animation-fill-mode: both; */ /*una vez que termina la animacion, se queda en el ultimo estado*/
-  /* animation-fill-mode: none; */ /*una vez que termina la animacion, se queda en el ultimo estado*/
-  /* animation-fill-mode: initial; */ /*una vez que termina la animacion, se queda en el ultimo estado*/
-  /* animation-fill-mode: inherit; */ /*una vez que termina la animacion, se queda en el ultimo estado*/
 
 
    animation-play-state: running;  /*reanuda la animacion*/
 
-  /* animation-play-state: paused; preferiblemente en un hover */ /*pausa la animacion*/
-
-
-  /*shorthand 
-  animation: mover 5s (solo necesita los primeros dos) linear infinite alternate .5s forwards;
-  */
+  
 }
 
 
@@ -81,7 +69,7 @@ code {
   }
   50%{
       transform: translate(100vh, 1000%);
-      /* transform: rotate3d(1, 1, 1, 90deg); */
+      
      
   }
   75%{

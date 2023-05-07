@@ -1,10 +1,13 @@
 
-
+/*** Para la searchbar** */
 import { useState } from 'react';
 import axios from 'axios';
-
-
 import Card from '../Card/Card';
+
+
+
+
+
 
 import style from "./SearchBar.module.css"
 
@@ -20,6 +23,8 @@ const SearchBar = () => {
  }
 
 /********************************************* Por Nombre *****************************************************/
+
+
     const [country, setCountry] = useState([])
     
     const [search, setSearch] = useState('')
@@ -40,7 +45,9 @@ const SearchBar = () => {
     }
 
 
-/********************************************* MANEJADORES DE EVENTOS *****************************************************/   
+/********************************************* MANEJADORES DE EVENTOS *****************************************************/ 
+
+
     const handleChange = (e) => {
         setSearch(e.target.value)
         
@@ -54,6 +61,7 @@ const SearchBar = () => {
 
 
 /********************************************* SEARCHBAR *****************************************************/
+
     return(
         <>
 
@@ -84,7 +92,6 @@ const SearchBar = () => {
                 subregion={elemento.subregion}
                 area={elemento.area}
                 poblacion={elemento.poblacion}
-                estadoSoberanoIndependiente={elemento.estadoSoberanoIndependiente}
                  
                  />
                  
