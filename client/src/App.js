@@ -15,8 +15,8 @@ import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 /*DEPLOY*/
 import axios from 'axios';
 axios.defaults.baseURL = "https://api-countries-5f8k.onrender.com/" ;
-
-
+// axios.defaults.baseURL = "http://localhost:3001/" ;
+// cartel desplegable,  la banderas, max height , cambiar tamaño de letras, fonmdo de formulario mas clarito, planteear una horas maximas ewn el form, name en ulñugar de ids, seleccion maxima de paises,----https://sweetalert2.github.io/,
 
 function App() {
 
