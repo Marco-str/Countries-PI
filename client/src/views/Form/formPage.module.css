@@ -1,7 +1,7 @@
 
 /************************* PARA DARLE ESTILO A LOS WARNINGS DE LOS INPUTS *****************************************************/
 .error {
-  color: rgb(218, 28, 28);
+  color: rgb(225, 7, 7);
 }
 span{
  
@@ -66,7 +66,7 @@ input[type="range"] {
   border-radius: 10px;
   font-family: inherit;
 
-  background-image: linear-gradient(to top, #b78779 0%, #70523a 100%);
+  background-image: linear-gradient(to top, #b78779 0%, #b68d70 100%);
 
 }
 
@@ -231,14 +231,3 @@ select {
   width: 300px;
 }
 
-
-
-/* input[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-} */

@@ -70,6 +70,9 @@ useEffect(() => {
        if (!formulario.duracion || formulario.duracion <= 0){
           errors.duracion = "Debe Ingresar al menos alguna Cantidad de Horas"
       }
+      if (formulario.duracion > 500){
+        errors.duracion = "Debe Ingresar una Cantidad de Horas Menor a 500"
+    }
        if (!formulario.temporada){
           errors.temporada = "Debe Seleccionar una Temporada del Año"
       }
@@ -154,7 +157,9 @@ useEffect(() => {
             <form action="" onSubmit={submitHandler} className={style.Formulario}>
 
 
-{/* /****************************************************************************************** */ }      
+{/* /****************************************************************************************** */ }   
+
+
             <div>
             <fieldset>
 
