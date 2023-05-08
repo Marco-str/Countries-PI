@@ -23,6 +23,21 @@ const { conn } = require('./src/db.js');
 
 const  { saveApiData }  = require('./src/controllers/saveApiData.js');
 
+/***Importar la variable PORT*** */
+require('dotenv').config();
+
+conn.sync({ force: true }) 
+
+.then( async () => {
+ 
+ await saveApiData();
+  
+  server.listen(process.env.PORT, () => {
+    console.log('%s listening at', process.env.PORT); // eslint-disable-line no-console
+  });
+})
+.catch((error) => console.log(error));
+
 
 
 // Syncing all the models at once.
@@ -35,14 +50,3 @@ force: false es para cuando no se cambia nada en la base de datos,
 alter: true es para cuando se cambia algo en la base de datos, y no borra la base de datos, 
 alter: false es para cuando no se cambia nada en la base de datos,  ,
 */
-conn.sync({ alter: true }) 
-
-.then( async () => {
- 
- await saveApiData();
-  
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  });
-})
-.catch((error) => console.log(error));
