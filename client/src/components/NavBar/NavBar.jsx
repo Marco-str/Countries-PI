@@ -36,21 +36,28 @@ const NavBar = () => {
            
             <div className={style.contenedor_imagen}>
 
-            <Link class={style.form__submit} to='/home'><img src={home}  className={style.contact__icon} alt="home" onmouseover={mostrarTexto(this)} onmouseout={ocultarTexto(this)} /></Link>
+            <Link class={style.form__submit} to='/home'><img src={home}  className={style.contact__icon} alt="home" onmouseover={mostrarTexto} onmouseout={ocultarTexto} /></Link>
             <div class={style.texto_imagen}>INICIO</div>
             </div>
             
-            <Link  class={style.form__submit} to='/create'><img src={Form}  className={style.contact__icon} alt="formulario" /></Link>
 
-                            
-            <Link  class={style.form__submit} to='/AboutMe'><img src={aboutMe} className={style.contact__icon} alt="formulario"/></Link>
+            <div className={style.contenedor_imagen}>
+            <Link  class={style.form__submit} to='/create'><img src={Form}  className={style.contact__icon} alt="formulario" onmouseover={mostrarTexto} onmouseout={ocultarTexto} /></Link>
+            <div class={style.texto_imagen}>CREAR UNA ACTIVIDAD</div>
+            </div>
 
+
+            <div className={style.contenedor_imagen}>              
+            <Link  class={style.form__submit} to='/AboutMe'><img src={aboutMe} className={style.contact__icon} alt="aboutme" onmouseover={mostrarTexto} onmouseout={ocultarTexto}/></Link>
+            <div class={style.texto_imagen}>AUTOR/CREADOR</div>
+            </div>
                           
             {/* <Link  class={style.form__submit} to='/home'><img src={Menu}  className={style.contact__icon} alt="menu" /></Link> */}
             
-                           
-            <Link class={style.form__submit} to= "/"> <img src={Logout} className={style.contact__icon} alt="logout" /> </Link>
-
+            <div className={style.contenedor_imagen}>             
+            <Link class={style.form__submit} to= "/"> <img src={Logout} className={style.contact__icon} alt="logout" onmouseover={mostrarTexto} onmouseout={ocultarTexto} /> </Link>
+            <div class={style.texto_imagen}>CERRAR SESION</div>
+            </div>
                         
                    
 

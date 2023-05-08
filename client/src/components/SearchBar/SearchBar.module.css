@@ -1,12 +1,4 @@
 
-/* 
-.searchContainer{
-
-    display: flex;
-    margin-left: 200px;
-    margin-top: -10px;
-} */
-
 
 .cardsContainer{
  
@@ -67,7 +59,6 @@
     --glow-color: rgb(168, 119, 5);
     --glow-spread-color: rgba(254, 175, 17, 0.781);
     --enhanced-glow-color: rgb(85, 55, 7);
-   /* --btn-color: rgb(65, 136, 61);*/
 
     box-shadow: 0 0 0.6em .25em var(--glow-color),
                 0 0 2.5em 2em var(--glow-spread-color),
@@ -80,7 +71,7 @@
 
     
     background-image: linear-gradient(to top, #834d18 0%, #483318 100%);
-    color: rgb(155, 134, 134);
+    color: rgb(246, 241, 224);
    font-family: inherit;
    font-size: 1.9rem;
    padding: 1em 1.5em;
@@ -109,7 +100,6 @@
     --glow-color: rgb(168, 119, 5);
     --glow-spread-color: rgba(254, 175, 17, 0.781);
     --enhanced-glow-color: rgb(85, 55, 7);
-   /* --btn-color: rgb(65, 136, 61);*/
 
     box-shadow: 0 0 0.6em .25em var(--glow-color),
                 0 0 2.5em 2em var(--glow-spread-color),

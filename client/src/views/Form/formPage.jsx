@@ -60,7 +60,7 @@ useEffect(() => {
       const errors = {}
 
       if(formulario.name.length < 3 || formulario.name.length > 25){
-          errors.name= "Debe Asignarle un Nombre a la Actividad"
+          errors.name= "La Actividad debe Tener al menos entre 3 y 25 Caracteres"
       }
        if(formulario.description.length < 10 || formulario.description.length > 150){
           errors.description= "La Descripcion debe Tener al menos 10 Caracteres"

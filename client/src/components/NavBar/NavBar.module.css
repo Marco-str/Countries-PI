@@ -8,13 +8,11 @@
 
     opacity: 0.9;
 
-
     display: flex;
     flex-flow: row wrap;
     
     justify-content: space-around;
     align-items: center;
-    border: 1px solid #282c34;
     
     border-radius: 15%;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5); 
@@ -42,9 +40,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
 
-    font-weight: 500;
-   
-    
+    font-weight: 500;   
     
 }
 
@@ -76,18 +72,28 @@
  .texto_imagen {
     display: none;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+  
+    background-image: linear-gradient(to top, #834d18 0%, #483318 100%);
+    border: 5px solid rgb(74, 69, 42);
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5); 
     color: #fff;
     text-align: center;
+   
+    font-size: 24px;
+    margin : 10px;
     padding: 10px;
-    font-size: 14px;
+    width: 300px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -150px;
+    border-radius: 10px;
+   
  }
  
  .contenedor_imagen:hover .texto_imagen {
     display: block;
+    transform: translateY(5px);
+    transition: all 1s ease-in-out;
  }
 
 
