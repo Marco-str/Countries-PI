@@ -14,7 +14,7 @@ import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 /*DEPLOY*/
 import axios from 'axios';
-axios.defaults.baseURL = "http://localhost:3001/" ;
+axios.defaults.baseURL = "https://api-countries-5f8k.onrender.com/" ;
 
 
 
