@@ -12,6 +12,9 @@ import { Route } from 'react-router-dom';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 
+/*DEPLOY*/
+import axios from 'axios';
+axios.defaults.baseURL = "http://localhost:3001/" ;
 
 
 

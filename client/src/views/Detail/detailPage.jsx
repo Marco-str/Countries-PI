@@ -21,7 +21,7 @@ const Detail = () =>{
     const [country, setCountry] = useState({})
 
     useEffect(() => {
-        axios(`http://localhost:3001/countries/${id}`)
+        axios(`/countries/${id}`)
         .then(({ data }) => {
            if (data.name) {
               setCountry(data);

@@ -121,7 +121,7 @@ useEffect(() => {
                 [event.target.name]: event.target.value
             })
   
-            axios.post("http://localhost:3001/activities", JSON.stringify(formulario), {  //<------|  Enviamos el formulario a la ruta /activities en formato JSON(me aseguro que llegue en ese formato si osi)
+            axios.post("/activities", JSON.stringify(formulario), {  //<------|  Enviamos el formulario a la ruta /activities en formato JSON(me aseguro que llegue en ese formato si osi)
               headers: {
                 'Content-Type': 'application/json'
               }

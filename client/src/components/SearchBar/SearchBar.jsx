@@ -36,7 +36,7 @@ const SearchBar = () => {
         }
         else {
 
-            axios.get(`http://localhost:3001/countries?name=${search}`)
+            axios.get(`/countries?name=${search}`)
             .then(res => {
                 setCountry(res.data)
             })
