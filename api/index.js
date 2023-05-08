@@ -38,7 +38,7 @@ alter: false es para cuando no se cambia nada en la base de datos,  ,
 conn.sync({ alter: true }) 
 
 .then( async () => {
- console.log( await saveApiData())
+ 
  await saveApiData();
   
   server.listen(3001, () => {

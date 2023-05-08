@@ -6,16 +6,24 @@ import {
   setPopulationFilter,
   setAlphabeticalFilter,
 } from '../../redux/actions/actions';
+
+
 import style from "./Filters.module.css";
 
+
 const FCheckbox = () => {
+
+
   const dispatch = useDispatch();
+
   const [filters, setFilters] = useState({
     continent: "",
     population: "",
     alphabetical: ""
   });
 
+
+/*************************************** HANDLERS ********************************************************** */
 
   function handleFilter(event) {
     event.preventDefault();
@@ -32,13 +40,20 @@ const FCheckbox = () => {
     setFilters({ ...filters, alphabetical: event.target.value });
   }
 
+
+/*************************************** RESETEA LOS FILTROS ************************************************ */
+
   function resetCountriesButton() {
+    if (!filters.continent && !filters.population && !filters.alphabetical) return alert("No hay filtros aplicados")
     dispatch(resetFilters());
     setFilters({ continent: "", population: "", alphabetical: "" })
     window.location.reload();
   }
 
+/*************************************** DESPACHA LAS ACTIONS ************************************************ */
+
   function applyFiltersButton() {
+    if (!filters.continent && !filters.population && !filters.alphabetical) return alert("No hay filtros aplicados")
     dispatch(setContinentFilter(filters.continent));
     dispatch(setPopulationFilter(filters.population));
     dispatch(setAlphabeticalFilter(filters.alphabetical));
@@ -46,6 +61,11 @@ const FCheckbox = () => {
 
   return (
     <>
+
+
+{/* /***************************************************************************************************************************** */}
+
+
       <div>
         <select name="order" defaultValue={"DEFAULT"} onChange={handleOrderByPopulation} className={style.form__search}>
           <option value="DEFAULT" disable>
@@ -55,6 +75,10 @@ const FCheckbox = () => {
           <option value="Descendente">Orden Descendente</option>
         </select>
 
+
+{/* /***************************************************************************************************************************** */}
+
+
         <select name="order" defaultValue={"DEFAULT"} onChange={handleOrderByAlfabeto} className={style.form__search}>
           <option value="DEFAULT" disable>
             Ordenar por Orden Alfabetico
@@ -62,6 +86,10 @@ const FCheckbox = () => {
           <option value="A-Z">Ordenar por orden alfabetico A-Z</option>
           <option value="Z-A">Ordenar por orden alfabetico Z-A</option>
         </select>
+
+
+{/* /***************************************************************************************************************************** */}
+
 
         <select name="filter" defaultValue={"DEFAULT"} onChange={handleFilter} className={style.form__search}>
           <option value="DEFAULT" disable>
@@ -75,8 +103,12 @@ const FCheckbox = () => {
           <option value="Oceania">Oceania</option> 
         </select>
 
+
+{/* /***************************************************************************************************************************** */}
+
         <button onClick={applyFiltersButton} class={style.form__submit}>Aplicar Filtro</button>
-        <button onClick={resetCountriesButton} class={style.form__submit}>Borrar Filtro</button>
+        <button onClick={resetCountriesButton} class={style.form__submit}>Borrar Filtro</button>   
+
       </div>
     </>
   );

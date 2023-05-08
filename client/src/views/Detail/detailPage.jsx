@@ -41,9 +41,9 @@ const Detail = () =>{
                 <div className={style.card}>
 
 
-                <div >
+                
                 <img  src={country.img} className={style.img} alt="bandera de pais" />
-                </div>
+                
                 <h1>Informacion Relevante:</h1>
                 <p> Nombre del pais:</p><h1>{country.name}</h1>
                 <p>Continente:   </p> <h2>{country.continente}</h2>

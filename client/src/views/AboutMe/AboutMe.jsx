@@ -19,19 +19,18 @@ return(
     <div className={style.container}>
 
         <div className={style.tituloPrincipal}>
-
              <h1>  Countries App </h1>
         </div>
 
         <div className={style.datosPersonales}>
 
-                <h1> Marco Salazar Torrealba</h1>
+                <h1 className={style.nombre}> Marco Salazar Torrealba</h1>
          
         </div>
                 
-              <div className={style.imagen}>
+              <div >
            
-                    <img src={imagenPersonal} alt="foto de marco, autor del proyecto" />
+                    <img className={style.imagen} src={imagenPersonal} alt="foto de marco, autor del proyecto" />
               </div>
 
      <div class={style.contact}>

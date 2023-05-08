@@ -24,12 +24,7 @@ const  allCountryId = countries.map((id) => id.id);
 
 useEffect(() => {
   dispatch(getCountries());
-}, [dispatch]);
-
-
-
-
-
+}, [dispatch]);                                                              // <------|  useEffect para que se ejecute cada vez que cambie el estado de countries
 
 
 
@@ -63,10 +58,10 @@ useEffect(() => {
     
       const errors = {}
 
-      if(formulario.name.length < 3){
+      if(formulario.name.length < 3 || formulario.name.length > 25){
           errors.name= "Debe Asignarle un Nombre a la Actividad"
       }
-       if(formulario.description.length < 10){
+       if(formulario.description.length < 10 || formulario.description.length > 150){
           errors.description= "La Descripcion debe Tener al menos 10 Caracteres"
       }
        if (!formulario.dificultad){
@@ -91,7 +86,7 @@ useEffect(() => {
 
     useEffect(() => {                    // <------| useEffect para que se ejecute cada vez que cambie el formulario
         setErrors(validate(formulario))
-    }, [formulario])
+    }, [formulario])                    // <------|  El array de dependencias esta vacio, por lo que se ejecuta solo cuando se monta el componente
 
 
 
@@ -116,7 +111,7 @@ useEffect(() => {
      
 
     
-   const submitHandler = async (event) => {
+  const submitHandler = async (event) => {
             event.preventDefault();               //<------|  Previene que se recargue la pagina al enviar el formulario
 
             const aux = Object.keys(errors)       //<------|  Si el objeto errors tiene alguna propiedad, significa que hay errores
@@ -141,7 +136,9 @@ useEffect(() => {
         };
           
 
-        const removeSelected = (id) => {
+        
+
+  const removeSelected = (id) => {
           const newSelected = formulario.CountryId.filter((countryId) => countryId !== id);
           setFormulario({ ...formulario, CountryId: newSelected });
         };
@@ -227,21 +224,21 @@ useEffect(() => {
 
 
             <div>
-            <fieldset>
+            <fieldset className={style.fieldset}>
 
                 <label htmlFor="">Temporada del Año:</label><br/>
                 
                 <input type="radio" name="temporada" value="Verano" checked={formulario.temporada === "Verano"} onChange={changeHandler} />
-                <label htmlFor="temporada">VERANO</label><br/>
+                <label class="container" htmlFor="temporada">VERANO</label><br/>
                
                 <input type="radio" name="temporada" value="Otoño" checked={formulario.temporada === "Otoño"} onChange={changeHandler} />
-                <label htmlFor="temporada">OTOÑO</label><br/>
+                <label class="container" htmlFor="temporada">OTOÑO</label><br/>
               
                 <input type="radio" name="temporada" value="Invierno" checked={formulario.temporada === "Invierno"} onChange={changeHandler} />
-                <label htmlFor="temporada">INVIERNO</label><br/>
+                <label class="container" htmlFor="temporada">INVIERNO</label><br/>
 
                 <input type="radio" name="temporada" value="Primavera" checked={formulario.temporada === "Primavera"} onChange={changeHandler} />
-                <label htmlFor="temporada">PRIMAVERA</label><br/> 
+                <label class="container" htmlFor="temporada">PRIMAVERA</label><br/> 
            {  errors.temporada 
            ? <span className={style.error} >❌{errors.temporada}</span>
            : <span >✅</span>} 
@@ -259,7 +256,7 @@ useEffect(() => {
           <div>
 
                       <label htmlFor="CountryId">País ID:</label>
-                      <select name="CountryId" id="" value={formulario.CountryId} onChange={changeHandler}>
+                      <select name="CountryId" id="" value={formulario.CountryId} onChange={changeHandler} className={style.labelPaisId}>
                         <option value="">Selecciona un país</option>
                         {
                         allCountryId.map((id) => ( <option value={id} key={id}> {id} </option> ))

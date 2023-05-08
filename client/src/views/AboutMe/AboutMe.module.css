@@ -5,32 +5,27 @@
   
   border: 5px solid black;
 
-   background-color: rgb(162, 124, 78);
-   background-image: linear-gradient(120deg, rgb(162,  124, 78) 0%, rgb(132, 76, 48) 100%);
-   background-image: linear-gradient(to top, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%);
-   background-image: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%);
-   /*background-image: url(../../Imagenes/Compass\ Rose\ Artwork\ 11\ X\ 14\ Old\ Maps\ Treasure\ Maps\ -\ Etsy.jpg);*/
-   
-   border-radius: 20%;
+   background-image: linear-gradient(to top, #796833 0%, #958b36 30%, #8a861f 46%, #9f8622 59%, #474227 71%, #222219 86%, #432c39 100%);
    
    
    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
    font-size: 25px;
    
    height:100vh;
-  
-    padding: 3em 1em;
-    margin-top: 50px;;
-    margin-left:150px;
-    margin-right: 300px;
-    margin-bottom: 10px;
    
-    
+   padding: -1em 1em;
+   margin-top: 50px;;
+   margin-left:150px;
+   margin-right: 300px;
+   margin-bottom: 10px;
+   
+   border-radius: 20%;
+   
   }
   
   .tituloPrincipal{
     
-    font-size: 4rem;
+    font-size: 3rem;
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 10px;
@@ -49,15 +44,37 @@
     align-items: flex-start;
     justify-content: flex-start;
   }
+  .nombre{
+    
+    font-size: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-bottom:10px;
+    display: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    color: rgb(201, 201, 190);
+   
+    background: transparent;
+    backdrop-filter: blur(2px);
+   
+
+  }
   
   .imagen{
-    border-radius: 100%;
-    width: 50%;
-   
+    
     justify-content: right;
     align-items: right;
-    margin-left: 550px;
+   
     
+    border-radius: 50%;
+    width: 30%;
+    height: 20%;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    margin-top: 30px;
    
 }
 

@@ -1,10 +1,7 @@
+
+
 .cardsContainer{
 
-    /*border: 1px solid black;
-    background-color: rgb(238, 196, 145);
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);*/
-    
- 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -18,16 +15,12 @@
     height: 100%;
     overflow: hidden;
     transition: all 0.5s ease-in-out;
-   
     text-decoration: none;
-
     z-index: 100;
-
 }
 
 
 .form__submit{
-
     
     background-image: linear-gradient(to top, #834d18 0%, #483318 100%);
    color: white;
@@ -43,20 +36,20 @@
    
    }
    
-   .form__submit:hover{
+
+.form__submit:hover{
        background-color: #4a3501;
        transition: all 0.3s ease;
-       transform: scaleX(1.1) scaleY(1.1) ;
-       
+       transform: scaleX(1.1) scaleY(1.1) ;  
    
    }
+
 
    .form__submit:active {
 
     --glow-color: rgb(168, 119, 5);
     --glow-spread-color: rgba(254, 175, 17, 0.781);
     --enhanced-glow-color: rgb(85, 55, 7);
-   /* --btn-color: rgb(65, 136, 61);*/
 
     box-shadow: 0 0 0.6em .25em var(--glow-color),
                 0 0 2.5em 2em var(--glow-spread-color),
@@ -64,4 +57,16 @@
   }
 
 
-  
+  /******************PANTALLA DE CARGA *********************/
+  .loading{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    
+
+  }

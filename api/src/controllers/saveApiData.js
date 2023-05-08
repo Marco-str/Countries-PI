@@ -4,32 +4,6 @@
  const { Country } = require("../db"); //<-- es el destructuring de sequilize.models
 
 
-//  let currencies = {
-//     "SBD": {
-//       "name": "Solomon Islands dollar",
-//       "symbol": "$"
-//     },
-//     "EUR": {
-//       "name": "Euro",
-//       "symbol": "€"
-//     },
-//     "BRL": {
-//       "name": "Brazilian real",
-//       "symbol": "R$"
-//     },
-//     // Agregar más objetos aquí...
-//   };
-  
-//   // Recorrer los objetos utilizando un bucle for...in
-//   for (let currencyCode in currencies) {
-//     // Comprobar si el objeto tiene la propiedad "name"
-//     if (currencies[currencyCode].hasOwnProperty("name")) {
-//       console.log(currencies[currencyCode].name); // Imprimir el valor de la propiedad "name"
-//     }
-//   }
-
-
-
  
 const getApiData = async () => {
 

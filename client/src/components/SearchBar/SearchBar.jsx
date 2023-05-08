@@ -22,7 +22,7 @@ const SearchBar = () => {
    return window.location.reload();
  }
 
-/********************************************* Por Nombre *****************************************************/
+/********************************************* Por Nombre **************************************************************/
 
 
     const [country, setCountry] = useState([])
@@ -56,7 +56,7 @@ const SearchBar = () => {
     const submitHandler = (e) => {
         e.preventDefault()
         buscar(search)
-        setSearch('')
+        setSearch("")
     }
 
 

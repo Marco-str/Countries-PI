@@ -1,6 +1,8 @@
+
+
+
 .mainContainer{
-    
-    
+
     background-image: linear-gradient(to top, #834d18 0%, #483318 100%);
     color: white;
 
@@ -12,22 +14,21 @@
     
     justify-content: space-around;
     align-items: center;
-    border-radius: 15px;
     border: 1px solid #282c34;
-
+    
     border-radius: 15%;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5); 
     border: 5px solid rgb(74, 69, 42);
+    
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 110px;
+    border-radius: 50px;
 
-   /* position: fixed;
-
-   margin-left: 1000px;
-
-   width: 60%;
-   */
+   
 }
 
-
+/****************BOTONES ************************************/
 
 .form__submit{
     

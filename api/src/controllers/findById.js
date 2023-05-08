@@ -20,7 +20,6 @@ const countryById = async (id) => {
         },
         include:{ 
           model: Tourist_activities,
-          //atributes: [ "name", "description " , "dificultad" , "duracion" ," temporada" ,   "pais" ]
         }
       });
       return country;
