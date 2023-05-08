@@ -81,7 +81,7 @@ const itemsPerPage = 10;
 
 
     return(
-
+<>
             <div className={style.cardsContainer}>
                    
             { 
@@ -91,8 +91,8 @@ const itemsPerPage = 10;
                        <img src={brujula} alt="cargando" />
                   </div>       
             : visibleCountries.map(elemento=> {                             //<------| si hay paises cargados, muestra los paises
-                return( <Card 
-
+              return( <Card 
+                
                 id={elemento.id}
                 name={elemento.name}
                 flag={elemento.img}
@@ -101,11 +101,14 @@ const itemsPerPage = 10;
                 subregion={elemento.subregion}
                 area={elemento.area}
                 poblacion={elemento.poblacion}
-
-                 /> 
+                
+                /> 
                 ) 
                  })
-            }
+                }
+        </div>
+
+        
 {/* /*********************************************************************************************************************** */}
 
 
@@ -116,7 +119,7 @@ const itemsPerPage = 10;
                         
             </div>
                     
-        </div>
+  </>
         
         )
 }
