@@ -57,7 +57,7 @@ const sortedCountries = filteredCountries.sort((a, b) => {
 /**************************************** PAGINADO DE 8 CARTAS ********************************************** */
 
 
-const itemsPerPage = 8;
+const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(0);
 
   const visibleCountries = sortedCountries.slice(
