@@ -31,7 +31,7 @@ const NavBar = () => {
             <Link  class={style.form__submit} to='/AboutMe'><img src={aboutMe} className={style.contact__icon} alt="formulario"/></Link>
 
                           
-            <Link  class={style.form__submit} to='/home'><img src={Menu}  className={style.contact__icon} alt="menu" /></Link>
+            {/* <Link  class={style.form__submit} to='/home'><img src={Menu}  className={style.contact__icon} alt="menu" /></Link> */}
             
                            
             <Link class={style.form__submit} to= "/"> <img src={Logout} className={style.contact__icon} alt="logout" /> </Link>
