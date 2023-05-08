@@ -25,15 +25,15 @@ const  { saveApiData }  = require('./src/controllers/saveApiData.js');
 
 /***Importar la variable PORT*** */
 require('dotenv').config();
-
+const  PORT  = process.env.PORT || 3001;
 conn.sync({ force: true }) 
 
 .then( async () => {
  
  await saveApiData();
   
-  server.listen(process.env.PORT, () => {
-    console.log('%s listening at', process.env.PORT); // eslint-disable-line no-console
+  server.listen(PORT, () => {
+    console.log('%s listening at', PORT); // eslint-disable-line no-console
   });
 })
 .catch((error) => console.log(error));
