@@ -12,8 +12,21 @@ import aboutMe from "../../Imagenes/working.png";
 
 const NavBar = () => {
 
-  
 
+
+/**************** CUADRO DE DIALOGO *********************** */
+
+
+    function mostrarTexto(elemento) {
+        elemento.nextSibling.style.display = "block";
+     }
+     
+     function ocultarTexto(elemento) {
+        elemento.nextSibling.style.display = "none";
+     }
+
+
+/********************************************************** */
 
     return(
 
@@ -21,9 +34,11 @@ const NavBar = () => {
         <div className={style.mainContainer}>
             
            
-            
-            <Link class={style.form__submit} to='/home'><img src={home}  className={style.contact__icon} alt="home" /></Link>
-            
+            <div className={style.contenedor_imagen}>
+
+            <Link class={style.form__submit} to='/home'><img src={home}  className={style.contact__icon} alt="home" onmouseover={mostrarTexto(this)} onmouseout={ocultarTexto(this)} /></Link>
+            <div class={style.texto_imagen}>INICIO</div>
+            </div>
             
             <Link  class={style.form__submit} to='/create'><img src={Form}  className={style.contact__icon} alt="formulario" /></Link>
 

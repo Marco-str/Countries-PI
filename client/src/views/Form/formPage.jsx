@@ -20,6 +20,7 @@ const countries = useSelector((state) => state.countries);
 
 
 const  allCountryId = countries.map((id) => id.id);
+const allCountryName = countries.map((name) => name.name);
 
 
 useEffect(() => {

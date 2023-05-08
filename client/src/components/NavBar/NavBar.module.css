@@ -66,4 +66,28 @@
      }
 
 
+/***************** Ventana de dialogo ************************/
+
+.contenedor_imagen {
+    position: relative;
+    display: inline-block;
+ }
+
+ .texto_imagen {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+ }
+ 
+ .contenedor_imagen:hover .texto_imagen {
+    display: block;
+ }
+
 
