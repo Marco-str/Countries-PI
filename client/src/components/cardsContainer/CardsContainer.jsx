@@ -90,6 +90,7 @@ const itemsPerPage = 10;
                        <h1>Cargando Vista.....</h1>
                        <img src={brujula} alt="cargando" />
                   </div>       
+                  
             : visibleCountries.map(elemento=> {                             //<------| si hay paises cargados, muestra los paises
               return( <Card 
                 
