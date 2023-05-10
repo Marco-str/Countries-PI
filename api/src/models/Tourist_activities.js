@@ -32,7 +32,8 @@ module.exports = (sequelize) => {
 
   duracion: {
 
-    type: DataTypes.INTEGER,
+    type: DataTypes.DECIMAL,
+    allowNull: false,
   },
 
   temporada:{
